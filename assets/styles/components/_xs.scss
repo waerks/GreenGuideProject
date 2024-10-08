@@ -1,0 +1,1368 @@
+@media (min-width: 0) {
+    // *
+    * {
+        box-sizing: border-box;
+        font-family: "Roboto", sans-serif;
+        color: black; 
+    }
+
+    body {
+        margin: auto 0;
+        background-color: $background;
+        padding-bottom: 50px;
+    }
+
+    // ASSETS
+    #mainBtn {
+        width: 150px;
+        height: 35px;
+        border-radius: 20px;
+        border: none;
+        background-color: $primary;
+
+        &:hover {
+            outline: 2px solid $primary;
+            outline-offset: 3px;
+        }
+
+        a {
+            font-size: 14px;
+            text-decoration: none;
+        }
+    }
+
+    #secondBtn {
+        width: 150px;
+        height: 35px;
+        border-radius: 20px;
+        border: none;  
+        background-color: $secondary;
+
+        &:hover {
+            outline: 2px solid $secondary;
+            outline-offset: 3px;
+        }
+
+        a {
+            font-size: 14px;
+            text-decoration: none;
+        }
+    }
+
+    #navBtn {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 100px;
+        height: 35px;   
+        
+        a {
+            font-size: 14px;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-bottom 0.1s ease-in-out 0.1s;
+
+            &:hover {
+                color: $primary;
+                border-bottom: 2px solid $primary;
+            }
+        }
+    }
+
+    #profilBtn {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 150px;
+        height: 35px;
+        
+    
+        a {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+
+            &:hover {
+                color: $primary;
+            }
+            
+
+            span {
+                width: 35px;
+                height: 100%;
+                border-radius: 20px;
+                background-color: white;
+        
+                img {
+                    object-fit: cover;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 20px;
+                }
+            }
+        }
+    }
+
+    #navHomeBtn {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 150px;
+        height: 35px;
+        
+    
+        a {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+
+            &:hover {
+                color: $primary;
+            }
+
+            span {
+                width: 35px;
+                height: 100%;
+                margin-right: 7px;
+                border-radius: 20px;
+
+                img {
+                    object-fit: cover;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 20px;
+                }
+            }
+        }
+    }
+    
+
+    #navFullBtn {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 150px;
+        height: 35px;
+        border-radius: 20px;
+        background-color: $primary;
+
+        &:hover {
+            outline: 2px solid $primary;
+            outline-offset: 3px;
+        }
+
+        a {
+            font-size: 14px;
+            text-decoration: none;
+        }
+    }
+
+    #navBorderBtn {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 150px;
+        height: 35px;
+        border-radius: 20px;
+        background-color: $secondary;
+
+        &:hover {
+            outline: 2px solid $secondary;
+            outline-offset: 3px;
+        }
+
+        a {
+            font-size: 14px;
+            text-decoration: none;
+        }
+    }
+
+    .input {
+        width: 300px;
+        height: 35px;
+        padding: 5px 0 5px 15px;
+        border: 1px solid black;
+        border-radius: 20px;
+        background-color: $background;
+
+        &:focus-visible {
+            border: 1px solid $primary;
+            outline: 1px solid $primary;
+        }
+    }
+
+    #filtreBtn {
+        height: 35px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0;
+        padding: 0 15px 0 5px;
+        border: 1px solid $accent;
+        border-radius: 20px;
+        background-color: $background;
+        cursor: pointer;
+
+        span {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+            margin-right: 5px;
+
+            img {
+                width: 80%;
+                height: 80%;
+                object-fit: contain;
+            }
+        }
+
+        &:hover {
+            border: 1px solid $primary;
+        }
+    }
+
+    #allBtn {
+        height: 35px;
+        width: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        border-radius: 20px;
+        background-color: $accent;
+        color: $background;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $primary;
+            color: black;
+        }
+    }
+
+    label {
+        font-weight: 700;
+        margin-bottom: 10px;
+        padding-left: 15px;
+
+        &:not(:first-child) {
+            margin-top: 20px;
+        }
+    }
+
+    textarea, #etape {
+        width: 100%;
+        max-width: 650px;
+        height: 150px;
+        border: 1px solid black;
+        border-radius: 20px;
+        padding: 5px 5px 5px 15px;
+        background-color: $background;
+
+        &:focus-visible {
+            border: 1px solid $primary;
+            outline: 1px solid $primary;
+        }
+    }
+
+    h1 {
+        font-family: "Playfair Display", serif;
+        font-size: 36px;
+        margin-top: 60px;
+    }
+
+    h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 32px;
+        
+        a {
+            text-decoration: none;
+            font-family: "Playfair Display", serif;
+            color: $primary;
+        }
+    }
+
+    h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 24px;
+    }
+
+    h4 {
+        font-family: "Playfair Display", serif;
+        font-size: 18px;
+        margin: 0;
+
+        &:hover {
+            color: $primary;
+        }
+    }
+
+    h5 {
+        font-size: 18px;
+        margin: 0;
+        font-weight: 500;
+    }
+    
+
+    #cardRepertoire {
+        width: 250px;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        background-color: white;
+        text-decoration: none;
+        border: 1px solid transparent;
+
+        span {
+            height: 80%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                object-fit: cover;
+                height: 100%;
+                width: 100%;
+                border-top-left-radius: 20px;
+                border-top-right-radius: 20px;
+            }
+        }
+
+        .cardInfo {
+            height: 20%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+
+            span {
+                width: 30px;
+                height: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 20px;
+                margin-right: 5px;
+                border: 1px solid $accent;
+
+    
+                img {
+                    width: 80%;
+                    height: 80%;
+                    object-fit: contain;
+                    border-radius: 20px;
+                }
+            }
+        }
+
+        &:hover {
+            border: 1px solid $primary;
+        }
+    }
+
+    #cardRecette {
+        width: 300px;
+        height: 350px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        background-color: white;
+        text-decoration: none;
+        border: 1px solid transparent;
+
+        span {
+            height: 80%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                object-fit: cover;
+                height: 100%;
+                width: 100%;
+                border-top-left-radius: 20px;
+                border-top-right-radius: 20px;
+            }
+        }
+
+        .cardInfo {
+            height: 20%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .divLeft {
+                width: 70%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                padding-left: 20px;
+
+                p {
+                    margin: 0;
+                    margin-top: 5px;
+                }
+            }
+
+            .divRight {
+                width: 30%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                span {
+                    width: 30px;
+                    height: 30px;
+        
+                    img {
+                        width: 70%;
+                        height: 70%;
+                        object-fit: contain;
+                        border-radius: 0px;
+                    }
+                }
+            }
+        }
+
+        &:hover {
+            border: 1px solid $primary;
+        }
+    }
+
+    #cardEntraide {
+        width: 500px;
+        height: 600px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        background-color: white;
+        text-decoration: none;
+        border: 1px solid transparent;
+
+        .divAuteur {
+            height: 10%;
+            width: 85%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .divTitreQ {
+            height: 10%;
+            width: 85%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .divImg {
+            height: 70%;
+            width: 90%;
+
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                border-radius: 20px;
+            }
+        }
+
+        .divInfos {
+            height: 10%;
+            width: 85%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            p {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                span {
+                    height: 21px;
+                    width: 21px;
+
+                    img {
+                        height: 100%;
+                        width: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                &:nth-child(1) {
+                    
+                    span {
+                        margin-right: 10px;
+                    }
+                }
+
+                &:nth-child(2) {
+
+                    span {
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+
+        &:hover {
+            border: 1px solid $primary;
+        }
+    }
+
+    .moisActif {
+        background-color: $secondary;
+        
+        p {
+            margin: 0;
+            color: $accent;
+        }
+    }
+
+    // MENU //
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 30px;
+
+        ul {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0;
+
+            &:nth-child(1) {
+                width: 20%;
+            }
+
+            &:nth-child(2) {
+                width: 40%;
+            }
+
+            &:nth-child(3) {
+                width: 40%;
+            }
+        }
+    }
+
+    // FOOTER //
+    footer {
+        margin-top: 50px;
+    }
+
+    // PAGES //
+    section {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        .container {
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            gap: 50px 0;
+            max-width: 1600px;
+
+            // FRONT PAGE
+            #home {
+                width: 100%;
+                display: flex;
+                flex-direction: column-reverse;
+                position: relative;
+
+                .divRight {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                } 
+
+                .divLeft {
+                    width: 100%;
+                    height: 500px;
+                    display: flex;
+                    border-radius: 50px;
+                    position: relative;
+                    background-color: $secondary;
+
+                    img {
+                        width: 400px;
+                        height: auto;
+                        object-fit: cover;
+                        position: absolute;
+                        z-index: 99;
+                        
+                        &:nth-child(1) {
+                            bottom: -33px;
+                            left: 50px;
+                        }
+                        
+                        &:nth-child(2) {
+                            bottom: -33px;
+                            right: 50px;
+                        }
+                    }
+                }
+            }
+
+            #about {
+                width: 100%;
+                display: flex;
+                flex-direction: column-reverse;
+
+                .divRight {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+
+                    p {
+                        width: 70%;
+                        word-wrap: break-word;
+                    }
+                }
+
+                .divLeft {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    span {
+                        width: 300px;
+                        height: 300px;
+                        background-color: $secaccent;
+                        border-radius: 50%;
+
+                        img {
+                            object-fit: cover;
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
+            }
+
+            #newsletters {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                border-radius: 50px;
+                padding: 50px 0;
+                background-color: $accent;
+
+                h3 {
+                    color: $background;
+                }
+
+                p {
+                    color: $background;
+                    margin-bottom: 50px;
+                }
+
+                .newsinscription {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 0 30px;
+
+                    #input {
+
+                        &:focus-visible {
+                            border: 1px solid $secondary;
+                            outline: 1px solid $secondary;
+                        }
+                    }
+                }
+            }
+
+            #contact {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+
+                .formcontact {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+
+                    form {
+                        width: 60%;
+                        display: flex;
+                        flex-direction: column;
+
+                        input {
+                            width: 100%;
+                        }
+
+                        textarea {
+                            margin-bottom: 20px;
+                        }
+                    }
+                }
+            }
+
+            // REPERTOIRE
+            #repertoireFiltre {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                
+                .divFiltre {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    
+                    .divOne {
+                        width: 80%;
+                        height: 100px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 0 50px;
+                    }
+                    
+                    .divTwo {
+                        width: 80%;
+                        height: 100px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-direction: column;
+
+                        .divCategorie {
+                            width: 80%;
+                            display: flex;
+                            justify-content: flex-start;
+                            align-items: center;
+                            gap: 0 50px;
+                        }
+                    }
+                }
+            }
+
+            #repertoire {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 30px 50px;
+            }
+
+            #repertoireDImg {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                
+                span {
+                    width: 100%;
+                    height: 500px;
+                    
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        border-radius: 50px;
+                    }
+                }
+            }
+
+            #repertoireDetail {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 30px 0;
+
+                .divTitre {
+                    width: 100%;
+                    height: 100px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-start;
+                }
+
+                .divInfo {
+                    width: 100%;
+                    height: 100px;
+                    padding: 0 15px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    align-items: center;
+                    border-radius: 20px;
+                    background-color: $accent;
+
+                    div {
+                        width: calc(100% / 3);
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+
+                        p {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: flex-start;
+                            color: $background;
+    
+                            b, span {
+                                color: $background;
+                            }
+                        }
+                    }
+                }
+
+                .divResume, .divSemis, .divPlantation, .divRecolte, .divDuo, .divConservation, .divContre {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+
+                    .divTitreInfo {
+                        width: 90%;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        span {
+                            width: 35px;
+                            height: 35px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: contain;
+                            }
+                        }
+                    }
+
+                    hr {
+                        width: 90%;
+                        margin: 0;
+                        color: $accent;
+                    }
+
+                    .divText {
+                        width: 90%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: flex-start;
+                    }
+                    
+                    .divTabInfo {
+                        width: 90%;
+                        display: flex;
+                        flex-direction: column;
+
+                        table {
+                            --border: 1px solid #153135;
+                            border-radius: 10px;
+                           
+                            border-spacing: 0;
+                            border-collapse: separate;
+                            border: var(--border);
+                            overflow: hidden;
+
+                            td {
+                                width: calc(100% / 12);
+                                height: 30px;
+                                text-align: center;
+                                border-right: var(--border);
+
+                                p {
+                                    margin: 0;
+                                }
+                            }
+                        }
+                    }
+
+                    .divEntretien, .divRotation, .divAmie, .divEnnemie, .divBenefice, .divInfoNut {
+                        width: 45%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        align-items: center;
+                    }
+
+                    .divRotation, .divEnnemie, .divInfoNut {
+
+                        .divTitreInfo {
+                            padding: 0;
+                        }
+                    }
+                }
+
+                .divDuo {
+                    width: 100%;
+                    flex-direction: row;
+                    align-items: flex-start;
+
+                    .divTitreInfo, .divText {
+                        width: 100%;
+                    }
+
+                    .divTitreInfo {
+                        padding-right: 25px;
+                    }
+
+                    .divText {
+                        padding-right: 25px;
+                    }
+                    
+                    hr {
+                        width: 100%;
+                    }
+                }
+            }
+
+            // RECETTE
+            #recetteFiltre {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+
+                .divRecherche {
+                    width: 80%;
+                    height: 100px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 0 50px;
+                }
+
+                .divTri {
+                    width: 100%;
+                    height: 100px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+            }
+
+            #recette {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 30px 50px;
+            }
+
+            #recetteDImg {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                
+                span {
+                    width: 100%;
+                    height: 500px;
+                    
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        border-radius: 50px;
+                    }
+                }
+
+                .divPost {
+                    width: 90%;
+                    display: flex;
+                    justify-content: space-between;
+
+                    .divLike {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        p {
+                            margin-right: 10px;
+                        }
+
+                        #like {
+                            width: 25px;
+                            height: 25px;
+                            padding: 0;
+                            background-color: transparent;
+                            border: none;
+                            cursor: pointer;
+
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: contain;
+                            }
+                        }
+                    }
+                }
+            }
+
+            #recetteDetail {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 30px 0;
+
+                .divTitre {
+                    width: 100%;
+                    height: 100px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-start;
+                }
+
+                .divInfos {
+                    width: 100%;
+                    height: 100px;
+                    padding: 0 15px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    align-items: center;
+                    border-radius: 20px;
+                    background-color: $accent;
+
+                    p {
+                        color: $background;
+
+                        b, span {
+                            color: $background;
+                        }
+                    }
+                }
+
+                .divIngredients, .divPreparation, .divConseil {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+
+                    .divNbre {
+                        width: 90%;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        p {
+                            font-weight: 700;
+                        }
+                    }
+
+                    hr {
+                        width: 90%;
+                        margin: 0;
+                        color: $accent;
+                    }
+
+                    .divListe {
+                        width: 90%;
+                    }
+                }
+            }
+
+            #recetteATitre {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 30px 0;
+
+                .divTitre {
+                    width: 100%;
+                    height: 100px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-start;
+                }
+            }
+
+            #recetteAjout, #aideAjout {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 30px 0;
+
+                form {
+                    width: 60%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-start;
+
+                    .choix {
+                        width: 60%;
+                        display: flex;
+                        gap: 0 30px;
+                    }
+
+                    .ingredients, .etapes {
+                        width: 100%;
+
+                        #secondBtn {
+                            margin-top: 0px;
+                        }
+
+                        .ingredient-item, .etape-item {
+                            width: 100%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 20px;
+                            margin: 15px 0;
+    
+                            .remove {
+                                height: 35px;
+                                width: 35px;
+                                border: 1px solid $secondary;
+                                border-radius: 30px;
+                                margin-top: 0;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+
+                    input, textarea {
+                        width: 100%;
+                    }
+
+                    textarea {
+                        min-height: 150px;
+                    }
+
+                    input[type="file"] {
+                        border: none;
+                        width: fit-content;
+
+                        &::file-selector-button {
+                            background-color: $secondary;
+                            height: 100%;
+                            border: 1px solid transparent;
+                            cursor: pointer;
+                            padding: 5px 10px;
+                            border-radius: 20px;
+                        }
+                    }
+
+                    hr {
+                        width: 100%;
+                        color: $accent;
+                    }
+
+                    button {
+                        margin-top: 30px;
+                    }
+
+                    #mainBtn:last-child {
+                        margin-top: 60px;
+                    }
+
+                    h3:not(:first-child) {
+                        margin-top: 50px;
+                    }
+                }
+            }
+
+            // ENTRAIDE
+            #entraideFiltre {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+
+                .divRecherche {
+                    width: 80%;
+                    height: 100px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 0 50px;
+                }
+
+                .divTri {
+                    width: 100%;
+                    height: 100px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+            }
+
+            #entraide {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 30px 50px;
+            }
+
+            #entraideDImg {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                
+                span {
+                    width: 100%;
+                    height: 500px;
+                    
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        border-radius: 50px;
+                    }
+                }
+
+                .divPost {
+                    width: 90%;
+                    display: flex;
+                    justify-content: space-between;
+
+                    .divLike {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        p {
+                            margin-right: 10px;
+                        }
+
+                        #reponse {
+                            width: 25px;
+                            height: 25px;
+                            padding: 0;
+                            background-color: transparent;
+                            border: none;
+                            cursor: pointer;
+
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: contain;
+                            }
+                        }
+                    }
+                }
+            }
+
+            #entraideDetail {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 30px 0;
+
+                .divTitre {
+                    width: 100%;
+                    height: 100px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-start;
+                }
+
+                .divInfos {
+                    width: 100%;
+                    min-height: 100px;
+                    padding: 0 35px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    align-items: center;
+                    border-radius: 20px;
+                    border: 1px solid $accent;
+
+                    p {
+                        color: $accent;
+                    }
+                }
+            }
+
+            #entraideCommentaire {
+                width: 100%;
+                min-height: 100px;
+                display: flex;
+                flex-direction: column;
+                gap: 30px 0;
+                border-radius: 20px;
+                border: 1px solid $accent;
+            }
+
+            #divAllRecette {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+
+                .rienPoster {
+                    width: 100%;
+                    height: 500px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    img {
+                        height: 80%;
+                        width: 80%;
+                        object-fit: contain;
+                        object-position: center;
+                    }
+                }
+
+                .contient {
+                    width: 60%;
+
+                    .allPost {
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
