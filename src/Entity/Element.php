@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ElementRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -49,6 +51,52 @@ class Element
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $informationsNutritionnelles = null;
+
+    /**
+     * @var Collection<int, self>
+     */
+    #[ORM\ManyToMany(targetEntity: self::class, inversedBy: 'elementAmi')]
+    private Collection $ami;
+
+    /**
+     * @var Collection<int, self>
+     */
+    #[ORM\ManyToMany(targetEntity: self::class, mappedBy: 'ami')]
+    private Collection $elementAmi;
+
+    /**
+     * @var Collection<int, self>
+     */
+    #[ORM\ManyToMany(targetEntity: self::class, inversedBy: 'elementEnnemi')]
+    private Collection $ennemi;
+
+    /**
+     * @var Collection<int, self>
+     */
+    #[ORM\ManyToMany(targetEntity: self::class, mappedBy: 'ennemi')]
+    private Collection $elementEnnemi;
+
+    /**
+     * @var Collection<int, TypeElement>
+     */
+    #[ORM\ManyToMany(targetEntity: TypeElement::class, inversedBy: 'elements')]
+    private Collection $typeElement;
+
+    /**
+     * @var Collection<int, Etape>
+     */
+    #[ORM\OneToMany(targetEntity: Etape::class, mappedBy: 'element', orphanRemoval: true)]
+    private Collection $etape;
+
+    public function __construct()
+    {
+        $this->ami = new ArrayCollection();
+        $this->elementAmi = new ArrayCollection();
+        $this->ennemi = new ArrayCollection();
+        $this->elementEnnemi = new ArrayCollection();
+        $this->typeElement = new ArrayCollection();
+        $this->etape = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -195,6 +243,162 @@ class Element
     public function setInformationsNutritionnelles(string $informationsNutritionnelles): static
     {
         $this->informationsNutritionnelles = $informationsNutritionnelles;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, self>
+     */
+    public function getAmi(): Collection
+    {
+        return $this->ami;
+    }
+
+    public function addAmi(self $ami): static
+    {
+        if (!$this->ami->contains($ami)) {
+            $this->ami->add($ami);
+        }
+
+        return $this;
+    }
+
+    public function removeAmi(self $ami): static
+    {
+        $this->ami->removeElement($ami);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, self>
+     */
+    public function getElementAmi(): Collection
+    {
+        return $this->elementAmi;
+    }
+
+    public function addElementAmi(self $elementAmi): static
+    {
+        if (!$this->elementAmi->contains($elementAmi)) {
+            $this->elementAmi->add($elementAmi);
+            $elementAmi->addAmi($this);
+        }
+
+        return $this;
+    }
+
+    public function removeElementAmi(self $elementAmi): static
+    {
+        if ($this->elementAmi->removeElement($elementAmi)) {
+            $elementAmi->removeAmi($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, self>
+     */
+    public function getEnnemi(): Collection
+    {
+        return $this->ennemi;
+    }
+
+    public function addEnnemi(self $ennemi): static
+    {
+        if (!$this->ennemi->contains($ennemi)) {
+            $this->ennemi->add($ennemi);
+        }
+
+        return $this;
+    }
+
+    public function removeEnnemi(self $ennemi): static
+    {
+        $this->ennemi->removeElement($ennemi);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, self>
+     */
+    public function getElementEnnemi(): Collection
+    {
+        return $this->elementEnnemi;
+    }
+
+    public function addElementEnnemi(self $elementEnnemi): static
+    {
+        if (!$this->elementEnnemi->contains($elementEnnemi)) {
+            $this->elementEnnemi->add($elementEnnemi);
+            $elementEnnemi->addEnnemi($this);
+        }
+
+        return $this;
+    }
+
+    public function removeElementEnnemi(self $elementEnnemi): static
+    {
+        if ($this->elementEnnemi->removeElement($elementEnnemi)) {
+            $elementEnnemi->removeEnnemi($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, TypeElement>
+     */
+    public function getTypeElement(): Collection
+    {
+        return $this->typeElement;
+    }
+
+    public function addTypeElement(TypeElement $typeElement): static
+    {
+        if (!$this->typeElement->contains($typeElement)) {
+            $this->typeElement->add($typeElement);
+        }
+
+        return $this;
+    }
+
+    public function removeTypeElement(TypeElement $typeElement): static
+    {
+        $this->typeElement->removeElement($typeElement);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Etape>
+     */
+    public function getEtape(): Collection
+    {
+        return $this->etape;
+    }
+
+    public function addEtape(Etape $etape): static
+    {
+        if (!$this->etape->contains($etape)) {
+            $this->etape->add($etape);
+            $etape->setElement($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEtape(Etape $etape): static
+    {
+        if ($this->etape->removeElement($etape)) {
+            // set the owning side to null (unless already changed)
+            if ($etape->getElement() === $this) {
+                $etape->setElement(null);
+            }
+        }
 
         return $this;
     }

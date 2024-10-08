@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -42,6 +44,31 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $avatar = null;
+
+    /**
+     * @var Collection<int, Recette>
+     */
+    #[ORM\OneToMany(targetEntity: Recette::class, mappedBy: 'user', orphanRemoval: true)]
+    private Collection $recette;
+
+    /**
+     * @var Collection<int, Question>
+     */
+    #[ORM\OneToMany(targetEntity: Question::class, mappedBy: 'user', orphanRemoval: true)]
+    private Collection $question;
+
+    /**
+     * @var Collection<int, Commentaire>
+     */
+    #[ORM\OneToMany(targetEntity: Commentaire::class, mappedBy: 'user', orphanRemoval: true)]
+    private Collection $commentaire;
+
+    public function __construct()
+    {
+        $this->recette = new ArrayCollection();
+        $this->question = new ArrayCollection();
+        $this->commentaire = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -162,6 +189,96 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setAvatar(?string $avatar): static
     {
         $this->avatar = $avatar;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Recette>
+     */
+    public function getRecette(): Collection
+    {
+        return $this->recette;
+    }
+
+    public function addRecette(Recette $recette): static
+    {
+        if (!$this->recette->contains($recette)) {
+            $this->recette->add($recette);
+            $recette->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRecette(Recette $recette): static
+    {
+        if ($this->recette->removeElement($recette)) {
+            // set the owning side to null (unless already changed)
+            if ($recette->getUser() === $this) {
+                $recette->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Question>
+     */
+    public function getQuestion(): Collection
+    {
+        return $this->question;
+    }
+
+    public function addQuestion(Question $question): static
+    {
+        if (!$this->question->contains($question)) {
+            $this->question->add($question);
+            $question->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeQuestion(Question $question): static
+    {
+        if ($this->question->removeElement($question)) {
+            // set the owning side to null (unless already changed)
+            if ($question->getUser() === $this) {
+                $question->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Commentaire>
+     */
+    public function getCommentaire(): Collection
+    {
+        return $this->commentaire;
+    }
+
+    public function addCommentaire(Commentaire $commentaire): static
+    {
+        if (!$this->commentaire->contains($commentaire)) {
+            $this->commentaire->add($commentaire);
+            $commentaire->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommentaire(Commentaire $commentaire): static
+    {
+        if ($this->commentaire->removeElement($commentaire)) {
+            // set the owning side to null (unless already changed)
+            if ($commentaire->getUser() === $this) {
+                $commentaire->setUser(null);
+            }
+        }
 
         return $this;
     }

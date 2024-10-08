@@ -23,6 +23,14 @@ class Etape
     #[ORM\Column(type: Types::TEXT)]
     private ?string $instructions = null;
 
+    #[ORM\ManyToOne(inversedBy: 'etape')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Element $element = null;
+
+    #[ORM\ManyToOne(inversedBy: 'etapes')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?TypeEtape $typeEtape = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +68,30 @@ class Etape
     public function setInstructions(string $instructions): static
     {
         $this->instructions = $instructions;
+
+        return $this;
+    }
+
+    public function getElement(): ?Element
+    {
+        return $this->element;
+    }
+
+    public function setElement(?Element $element): static
+    {
+        $this->element = $element;
+
+        return $this;
+    }
+
+    public function getTypeEtape(): ?TypeEtape
+    {
+        return $this->typeEtape;
+    }
+
+    public function setTypeEtape(?TypeEtape $typeEtape): static
+    {
+        $this->typeEtape = $typeEtape;
 
         return $this;
     }

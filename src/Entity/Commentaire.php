@@ -23,6 +23,14 @@ class Commentaire
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
 
+    #[ORM\ManyToOne(inversedBy: 'commentaire')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $user = null;
+
+    #[ORM\ManyToOne(inversedBy: 'commentaire')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Question $question = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +68,30 @@ class Commentaire
     public function setImage(?string $image): static
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getQuestion(): ?Question
+    {
+        return $this->question;
+    }
+
+    public function setQuestion(?Question $question): static
+    {
+        $this->question = $question;
 
         return $this;
     }

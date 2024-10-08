@@ -38,6 +38,10 @@ class Recette
     #[ORM\Column(type: Types::ARRAY)]
     private array $etapes = [];
 
+    #[ORM\ManyToOne(inversedBy: 'recette')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $user = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -135,6 +139,18 @@ class Recette
     public function setEtapes(array $etapes): static
     {
         $this->etapes = $etapes;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }
