@@ -8,10 +8,10 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class ProfilController extends AbstractController
 {
-    #[Route('/profil', name: 'app_profil')]
+    #[Route('/profil', name: 'profil')]
     public function index(): Response
     {
-        return $this->render('profil/index.html.twig', [
+        return $this->render('profil/profil.html.twig', [
             'controller_name' => 'ProfilController',
         ]);
     }

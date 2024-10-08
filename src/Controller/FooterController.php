@@ -8,10 +8,10 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class FooterController extends AbstractController
 {
-    #[Route('/footer', name: 'app_footer')]
+    #[Route('/footer', name: 'footer')]
     public function index(): Response
     {
-        return $this->render('footer/index.html.twig', [
+        return $this->render('footer/footer.html.twig', [
             'controller_name' => 'FooterController',
         ]);
     }
