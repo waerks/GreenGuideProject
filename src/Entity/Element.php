@@ -56,6 +56,7 @@ class Element
      * @var Collection<int, self>
      */
     #[ORM\ManyToMany(targetEntity: self::class, inversedBy: 'elementAmi')]
+    #[ORM\JoinTable(name: 'element_ami')]
     private Collection $ami;
 
     /**
@@ -74,6 +75,7 @@ class Element
      * @var Collection<int, self>
      */
     #[ORM\ManyToMany(targetEntity: self::class, mappedBy: 'ennemi')]
+    #[ORM\JoinTable(name: 'element_ennemi')]
     private Collection $elementEnnemi;
 
     /**
