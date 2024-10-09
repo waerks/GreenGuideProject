@@ -21,7 +21,10 @@ class EntraideController extends AbstractController
     #[Route('/entraide', name: 'entraide')]
     public function index(): Response
     {
+        // Chercher les users
         $users = $this->doctrine->getRepository(User::class)->findAll();
+
+        // Chercher les questions
         $questions = $this->doctrine->getRepository(Question::class)->findAll();
 
         $vars = [

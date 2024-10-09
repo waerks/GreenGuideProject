@@ -1,0 +1,43 @@
+{% include "header/header.html.twig" %}
+
+
+<section>
+    <div class="container">
+        <section id="recetteATitre">
+            <div class="divTitre">
+                <h2>Souhaitez-vous vous inscrire ?</h2>
+            </div>
+        </section>
+        <section id="aideAjout">
+            {{ form_errors(registrationForm) }}
+
+            {{ form_start(registrationForm, {'attr': {'enctype': 'multipart/form-data'}}) }}
+                <h3>Ça se passse ici !</h3>
+                <hr>
+                
+                <label for="avatar">Choisissez votre avatar</label>
+                {{ form_widget(registrationForm.avatar, {'attr': {'class': 'input', 'name': 'file'}}) }}
+
+                <label for="nom">Nom</label>
+                {{ form_widget(registrationForm.nom, {'attr': {'class': 'input', 'name': 'nom'}}) }}
+
+                <label for="prenom">Prénom</label>
+                {{ form_widget(registrationForm.prenom, {'attr': {'class': 'input', 'name': 'prenom'}}) }}
+
+                <label for="pseudo">Pseudo</label>
+                {{ form_widget(registrationForm.pseudo, {'attr': {'class': 'input', 'name': 'pseudo'}}) }}
+
+                <label for="email">Adresse mail</label>
+                {{ form_widget(registrationForm.email, {'attr': {'class': 'input', 'name': 'email'}}) }}
+
+                <label for="plainPassword">Mot de passe</label>
+                {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'input', 'name': 'password'}}) }}
+                
+                <button type="submit" id="mainBtn">S'inscrire</button>
+            {{ form_end(registrationForm) }}
+        </section>
+    </div>
+</section>
+
+
+{% include "footer/footer.html.twig" %}
