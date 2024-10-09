@@ -1,1 +1,59 @@
-hello
+{% include "header/header.html.twig" %}
+
+
+<section>
+    <div class="container">
+        <section id="home">
+            <div class="divRight">
+                <h1>GreenGuide</h1>
+                <h2>Partagez vos <a href="{{ path('recette') }}">recettes</a> et <a href="{{ path('entraide') }}">astuces</a> comestibles !</h2>
+            </div>
+            <div class="divLeft">
+                <img src="{{ asset('/build/images/icons/plant1.png') }}" alt="">
+                <img src="{{ asset('/build/images/icons/plant2.png') }}" alt="">
+            </div>
+        </section>
+        <section id="about">
+            <div class="divRight">
+                <h3>A propos de nous</h3>
+                <p>Nous sommes une communauté passionnée de fruits, légumes et plantes comestibles. Rejoignez-nous pour échanger des astuces, partager des recettes et célébrer ensemble la joie de la cuisine naturelle !</p>
+            </div>
+            <div class="divLeft">
+                <span>
+                    <img src="{{ asset('/build/images/icons/plants.png') }}" alt="">
+                </span>
+            </div>
+        </section>
+        <section id="newsletters">
+                <h3>Inscrivez-vous à notre newsletters</h3>
+                <p>Recevez nos recettes et astuces gourmandes directement dans votre boîte mail !</p>
+                <div class="newsinscription">
+                    <input type="email" name="newsletters" class="input">
+                    <button type="submit" id="secondBtn">
+                        <a href="#inscription">S'inscrire</a>
+                    </button>
+                </div>
+        </section>
+        <section id="contact">
+            <h3>Des questions&nbsp;? Contactez-nous&nbsp;!</h3>
+            <div class="formcontact">
+                <form action="" method="post">
+                    <label for="name">Nom</label>
+                    <input type="text" name="newsletters" class="input">
+                    <label for="forname">Prénom</label>
+                    <input type="text" name="newsletters" class="input">
+                    <label for="mail">Adresse mail</label>
+                    <input type="email" name="newsletters" class="input">
+                    <label for="message">Votre message</label>
+                    <textarea name="message" id="message"></textarea>
+                    <button type="submit" id="mainBtn">
+                        <a href="#contact">Envoyer</a>
+                    </button>              
+                </form>
+            </div>
+        </section>
+    </div>
+</section>
+
+
+{% include "footer/footer.html.twig" %}

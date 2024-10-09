@@ -1,20 +1,68 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html>
+    <head>
+        {# *** META *** #}
+        <meta charset="UTF-8">
+        <meta
+            name="description"
+            content="Découvrez notre site dédié aux fruits, légumes et plantes comestibles. Rejoignez notre communauté pour partager vos expériences, poser des questions et publier des recettes. Entraide et partage de connaissances garantis !">
+        <meta
+            name="keywords"
+            content="fruits, légumes, plantes comestibles, jardinage, culture de plantes, recettes, partage de connaissances, entraide, communauté, conseils jardinage">
+        <meta name="author" content="Anaïs Aerts">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {# *** TITLE *** #}
+        <title>{% block title %}GreenGuide{% endblock %}</title>
+        {# *** ICONS *** #}
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('build/images/logo/180x180.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('build/images/logo/32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('build/images/logo/16x16.png') }}">
+        {# *** CSS *** #}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app_style') }}
+            {# 'styles' fait référence à l'entrée CSS configurée dans webpack.config.js #}
+        {% endblock %}
+    </head>
+    <body>
+        {# *** MENU *** #}
+        <nav>
+            <ul>
+                <li id="navHomeBtn">
+                    <a href="{{ path('accueil') }}">
+                        <span><img src="{{ asset('build/images/logos/greenguide.png') }}" alt="Accueil"></span>GreenGuide</a>
+                </li>
+            </ul>
+            <ul>
+                <li id="navBtn">
+                    <a href="{{ path('repertoire') }}">Répertoire</a>
+                </li>
+                <li id="navBtn">
+                    <a href="{{ path('recette') }}">Recettes</a>
+                </li>
+                <li id="navBtn">
+                    <a href="{{ path('entraide') }}">Entraide</a>
+                </li>
+            </ul>
+            <ul>
 
-{% block title %}Hello HeaderController!{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+                {% if is_granted ("ROLE_USER") and app.user %}
+                
+                    <li id="profilBtn">
+                        <a href="{{ path('profil') }}">
+                            <span><img src="{{ asset('uploads/avatars/' ~ app.user.id ~ '/' ~ app.user.avatar) }}" alt="Profil"></span>{{app.user.pseudo}}</a>
+                    </li>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/xampp/htdocs/GreenGuide/GreenGuideProject/src/Controller/HeaderController.php</code></li>
-        <li>Your template at <code>C:/xampp/htdocs/GreenGuide/GreenGuideProject/templates/header/index.html.twig</code></li>
-    </ul>
-</div>
-{% endblock %}
+                    <li id="navBorderBtn">
+                        <a href="">Déconnexion</a>
+                    </li>
+                {% else %}
+                    <li id="navFullBtn">
+                        <a href="">S'inscire</a>
+                    </li>
+                    <li id="navBorderBtn">
+                        <a href="">Se connecter</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>

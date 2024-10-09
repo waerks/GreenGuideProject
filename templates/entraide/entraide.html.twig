@@ -1,20 +1,46 @@
-{% extends 'base.html.twig' %}
+{% include "header/header.html.twig" %}
 
-{% block title %}Hello EntraideController!{% endblock %}
+<section>
+    <div class="container">
+        <section id="entraideFiltre">
+            <h2>S'entraider, c'est la clé !</h2>
+            <div class="divRecherche">
+                <input type="text" name="newsletters" class="input" placeholder="Rechercher...">
+                {# <button type="submit" id="mainBtn">
+                    <a href="#rechercher">Rechercher</a>
+                </button> #}
+            </div>
+            <div class="divTri">       
+                <button type="submit" id="mainBtn">
+                    <a href="{{path('entraide_ajouter')}}">Poser une question</a>
+                </button>
+                <button type="submit" id="secondBtn">
+                    <a href="">Trier et afficher</a>
+                </button>
+            </div>
+        </section>
+        <section id="entraide">
+            {% for question in questions %}
+                <a id="cardEntraide" href="{{path('entraide_detail', { 'user_name' : question.user.pseudo, 'titre' : question.titre})}}">
+                    <div class="divAuteur">
+                        <h5>{{question.user.pseudo}}</h5>
+                        <p>Posté le <span>12/08/24</span></p>
+                    </div>
+                    <div class="divTitreQ">
+                        <h4>{{question.titre}}</h4>
+                    </div>
+                    <div class="divImg">
+                        <img src="{{ asset('/uploads/photosEntraide/default.png')}}" alt="Aide image">
+                    </div>
+                    <div class="divInfos">
+                        <p><span><img src="{{ asset('/build/images/icons/bulle.png')}}" alt="Commentaire"></span> 0</p>
+                        <p>Pas répondu <span><img src="{{ asset('/build/images/icons/non.png')}}" alt="Pas répondu"></span></p>
+                    </div>
+                </a>
+            {% endfor %}
+        </section>
+    </div>
+</section>
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/xampp/htdocs/GreenGuide/GreenGuideProject/src/Controller/EntraideController.php</code></li>
-        <li>Your template at <code>C:/xampp/htdocs/GreenGuide/GreenGuideProject/templates/entraide/index.html.twig</code></li>
-    </ul>
-</div>
-{% endblock %}
+{% include "footer/footer.html.twig" %}

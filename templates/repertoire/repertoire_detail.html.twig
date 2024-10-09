@@ -1,0 +1,166 @@
+{% include "header/header.html.twig" %}
+
+
+<section>
+    <div class="container">
+        <section id="repertoireDImg">
+            <span>
+        {% for type in element.typeElement %}
+            <img src="{{ asset('/uploads/photosPlantes/' ~ type.nom ~ '/' ~ element.image) }}" alt="{{ element.nom }}">
+        {% endfor %}
+            </span>
+        </section>
+        <section id="repertoireDetail">
+            <div class="divTitre">
+                <h2>{{ element.nom }}</h2>
+            </div>
+            <div class="divInfo">
+                <div class="divnomS">
+                    <p><b>Nom scientifique : </b><span>{{ element.nomscientifique }}</span></p>
+                </div>
+                <div class="divfamille">
+                    <p><b>Famille : </b><span>{{ element.famille }}</span></p>
+                </div>
+                <div class="divhateur">
+                    <p><b>Hauteur : </b><span>{{ element.hauteur }}</span></p>
+                </div>
+            </div>
+            <div class="divResume">
+                <div class="divTitreInfo">
+                    <h3>Résumé</h3>
+                    <span><img src="{{ asset('/build/images/icons/resume.png')}}" alt="Résumé"></span>
+                </div>
+                <hr>
+                <div class="divText">
+                    <p>{{ element.resume }}</p>
+                    <p id="sol"><b>Sol : </b><span>{{ element.sol }}</span></p>
+                </div>
+            </div>
+            {% for etape in element.etape %}
+
+                <div class="div{{etape.typeEtape.nom|capitalize}}">
+                    <div class="divTitreInfo">
+                        <h3>{{etape.typeEtape.nom|capitalize}}</h3>
+                        <span><img src="{{ asset('/build/images/icons/' ~ etape.typeEtape.nom ~ '.png')}}" alt="{{etape.typeEtape.nom}}"></span>
+                    </div>
+                    <hr>
+                    <div class="divTabInfo">
+                        <p id="periode"><b>Période : </b><span>{{etape.periode}}</span></p>
+                        <table>
+                            {% set moisArray = ['janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'aout', 'septembre', 'octobre', 'novembre', 'decembre'] %}
+
+                            {% for mois in moisArray %}
+                                <td id="{{ mois }}" class="{% if mois in etape.mois %}moisActif{% endif %}">
+                                    <p>{{ mois|first|upper }}</p>
+                                </td>
+                            {% endfor %}
+                        </table>
+                        <p id="instructions"><b>Instructions : </b><span>{{etape.instructions}}</span></p>
+                    </div>
+                </div>
+                
+            {% endfor %}
+            <div class="divDuo">
+                <div class="divEntretien">
+                    <div class="divTitreInfo">
+                        <h3>Entretien</h3>
+                        <span><img src="{{ asset('/build/images/icons/entretien.png')}}" alt="Récolte"></span>
+                    </div>
+                    <hr>
+                    <div class="divText">
+                        <p>{{ element.entretien }}</p>
+                    </div>
+                </div>
+                <div class="divRotation">
+                    <div class="divTitreInfo">
+                        <h3>Rotation</h3>
+                        <span><img src="{{ asset('/build/images/icons/rotation.png')}}" alt="Rotation"></span>
+                    </div>
+                    <hr>
+                    <div class="divText">
+                        <p>{{ element.rotationdescultures }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="divDuo">
+                <div class="divAmie">
+                    <div class="divTitreInfo">
+                        <h3>Plante amie</h3>
+                        <span><img src="{{ asset('/build/images/icons/amie.png')}}" alt="Amie"></span>
+                    </div>
+                    <hr>
+                    <div class="divText">
+                        <ul>
+                            {% for ami in element.ami %}
+                                <li>{{ ami.nom }}</li>
+                            {% else %}
+                                <li>Aucun ami trouvé.</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="divEnnemie">
+                    <div class="divTitreInfo">
+                        <h3>Plante ennemie</h3>
+                        <span><img src="{{ asset('/build/images/icons/ennemie.png')}}" alt="Ennemie"></span>
+                    </div>
+                    <hr>
+                    <div class="divText">
+                        <ul>
+                            {% for ennemi in element.ennemi %}
+                                <li>{{ ennemi.nom }}</li>
+                            {% else %}
+                                <li>Aucun ennemi trouvé.</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="divConservation">
+                <div class="divTitreInfo">
+                    <h3>Conservation</h3>
+                    <span><img src="{{ asset('/build/images/icons/conservation.png')}}" alt="Conservation"></span>
+                </div>
+                <hr>
+                <div class="divText">
+                    <p>{{ element.conservation }}</p>
+                </div>
+            </div>
+            <div class="divDuo">
+                <div class="divBenefice">
+                    <div class="divTitreInfo">
+                        <h3>Bénéfices</h3>
+                        <span><img src="{{ asset('/build/images/icons/benefice.png')}}" alt="Bénéfices"></span>
+                    </div>
+                    <hr>
+                    <div class="divText">
+                        <p>{{ element.benefices }}</p>
+                    </div>
+                </div>
+                <div class="divInfoNut">
+                    <div class="divTitreInfo">
+                        <h3>Informations nutritionnelles</h3>
+                        <span><img src="{{ asset('/build/images/icons/nutrition.png')}}" alt="Contre indication"></span>
+                    </div>
+                    <hr>
+                    <div class="divText">
+                        <p>{{ element.informationsNutritionnelles }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="divContre">
+                <div class="divTitreInfo">
+                    <h3>Contre indication</h3>
+                    <span><img src="{{ asset('/build/images/icons/contreindication.png')}}" alt="Contre indication"></span>
+                </div>
+                <hr>
+                <div class="divText">
+                    <p>{{ element.contreindication }}</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</section>
+
+
+{% include "footer/footer.html.twig" %}

@@ -1,0 +1,32 @@
+{% include "header/header.html.twig" %}
+
+
+<section>
+    <div class="container">
+        <section id="recetteATitre">
+            <div class="divTitre">
+                <h2>Poser vos questions aux autres utilisateurs !</h2>
+            </div>
+        </section>
+        <section id="aideAjout">
+            <form action="" method="post">
+                <h3>Votre question</h3>
+                <hr>
+                
+                <label for="titre">Le titre de votre question</label>
+                <input type="text" name="recetteajout" id="input">
+                <label for="file">Photo de votre question</label>
+                <input type="file" name="recetteajout" id="input">
+                <label for="conseil">Votre question</label>
+                <textarea name="etape" id="message"></textarea>
+                
+                <button type="submit" id="mainBtn">
+                    <a href="./front-page.php">Poster</a>
+                </button>
+            </form>
+        </section>
+    </div>
+</section>
+
+
+{% include "footer/footer.html.twig" %}

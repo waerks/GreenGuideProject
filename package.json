@@ -5,6 +5,7 @@
         "@symfony/webpack-encore": "^5.0.1",
         "core-js": "^3.38.0",
         "css-minimizer-webpack-plugin": "^7.0.0",
+        "file-loader": "^6.0.0",
         "mini-css-extract-plugin": "^2.9.1",
         "regenerator-runtime": "^0.13.9",
         "sass": "^1.79.4",

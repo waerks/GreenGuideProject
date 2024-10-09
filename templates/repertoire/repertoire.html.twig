@@ -1,20 +1,42 @@
-{% extends 'base.html.twig' %}
+{% include "header/header.html.twig" %}
 
-{% block title %}Hello RepertoireController!{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<section>
+    <div class="container">
+        <section id="repertoireFiltre">
+            <h2>Le répertoire</h2>
+            <div class="divFiltre">
+                <div class="divOne">
+                    <input type="text" name="newsletters" class="input" placeholder="Rechercher...">
+                    {# <button type="submit" id="mainBtn">
+                        <a href="#rechercher">Rechercher</a>
+                    </button> #}
+                </div>
+                <div class="divTwo">
+                    <div class="divCategorie">
+                        <button type="submit" id="allBtn">Toutes les catégories</button>
+                        <button type="submit" id="filtreBtn"><span><img src="{{ asset('/build/images/icons/legume.png')}}" alt="Légumes"></span>Légumes</button>
+                        <button type="submit" id="filtreBtn"><span><img src="{{ asset('/build/images/icons/fruit.png')}}" alt="Fruits"></span>Fruits</button>
+                        <button type="submit" id="filtreBtn"><span><img src="{{ asset('/build/images/icons/plante.png')}}" alt="Plantes"></span>Plantes</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="repertoire">
+        {# {% for item in element %}
+                <a id="cardRepertoire" href="{{ path('repertoire_detail', { 'nom': item.nom })}}">
+                    {% for type in item.typeElement %}
+                    <span><img src="{{ asset('/build/images/photosPlantes/' ~ type.nom ~ '/' ~ item.image)}}" alt="{{ item.nom }}"></span>
+                    <div class="cardInfo">
+                    <h4>{{ item.nom }}</h4>
+                        <span><img src="{{ asset('/build/images/logo/icons/' ~ type.nom ~ '.png') }}" alt="{{ type.nom }}"></span>
+                    </div>
+                    {% endfor %}
+                </a>
+        {% endfor %} #}
+        </section>
+    </div>
+</section>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/xampp/htdocs/GreenGuide/GreenGuideProject/src/Controller/RepertoireController.php</code></li>
-        <li>Your template at <code>C:/xampp/htdocs/GreenGuide/GreenGuideProject/templates/repertoire/index.html.twig</code></li>
-    </ul>
-</div>
-{% endblock %}
+{% include "footer/footer.html.twig" %}

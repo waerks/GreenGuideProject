@@ -1,0 +1,72 @@
+{% include "header/header.html.twig" %}
+
+
+<section>
+    <div class="container">
+        <section id="recetteDImg">
+            <span>
+                <img src="{{ asset('/uploads/photosRecette/' ~ recette.image)}}" alt="">
+            </span>
+            <div class="divPost">
+                <p>Posté par <span>{{recette.user.pseudo}}</span></p>
+                <div class="divLike">
+                    <p>52</p>
+                    <button id="like" type="submit"><img src="{{ asset('/build/images/icons/coeur vide.png')}}" alt=""></button>
+                </div>
+            </div>
+        </section>
+        <section id="recetteDetail">
+            <div class="divTitre">
+                <h2>{{recette.nom}}</h2>
+            </div>
+            <div class="divInfos">
+                <p><b>Temps de préparation : </b><span>{{recette.tempsDePreparation}}</span> minutes</p>
+                <p><b>Temps de cuisson : </b><span>{{recette.tempsDeCuisson}}</span> minutes</p>
+                <p><b>Temps total : </b><span>{{ recette.tempsDePreparation + recette.tempsDeCuisson }}</span> minutes</p>
+            </div>
+            <div class="divIngredients">
+                <div class="divNbre">
+                    <h3>Ingrédients</h3>
+                    <p><span>{{recette.nombreDePersonnes}}</span> personnes</p>
+                </div>
+                <hr>
+                <div class="divListe">
+                    <ul>
+                        {% for item in recette.ingredients %}
+                            <li>
+                                <p>{{item}}</p>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="divPreparation">
+                <div class="divNbre">
+                    <h3>Préparation</h3>
+                </div>
+                <hr>
+                <div class="divListe">
+                    <ol>
+                        {% for item in recette.etapes %}
+                            <li>
+                                <p>{{item}}</p>
+                            </li>
+                        {% endfor %}
+                    </ol>
+                </div>
+            </div>
+            <div class="divConseil">
+                <div class="divNbre">
+                    <h3>Conseil</h3>
+                </div>
+                <hr>
+                <div class="divListe">
+                    <p>{{recette.conseil}}</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</section>
+
+
+{% include "footer/footer.html.twig" %}

@@ -32,6 +32,12 @@ Encore
 
     // Activer le support de SASS/SCSS
     .enableSassLoader()
+
+    // Importer les images dans le build
+    .copyFiles({
+        from: './assets/images',
+        to: 'images/[path][name].[ext]', // Copie les fichiers dans /public/build/icons
+    })
 ;
 
 // Exporter la configuration finale de Webpack
