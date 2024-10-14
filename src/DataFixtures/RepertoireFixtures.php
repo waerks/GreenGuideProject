@@ -35,6 +35,7 @@ class RepertoireFixtures extends Fixture
             $element->setConservation($faker->paragraph());
             $element->setContreIndication($faker->paragraph());
             $element->setInformationsNutritionnelles($faker->paragraph());
+            $element->setBenefices($faker->paragraph());
 
             // Persister l'élément
             $manager->persist($element);

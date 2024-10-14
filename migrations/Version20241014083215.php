@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20241009131001 extends AbstractMigration
+final class Version20241014083215 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -21,7 +21,7 @@ final class Version20241009131001 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('CREATE TABLE commentaire (id INT AUTO_INCREMENT NOT NULL, user_id INT NOT NULL, question_id INT NOT NULL, titre VARCHAR(255) NOT NULL, contenu LONGTEXT NOT NULL, image VARCHAR(255) DEFAULT NULL, INDEX IDX_67F068BCA76ED395 (user_id), INDEX IDX_67F068BC1E27F6BF (question_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE element (id INT AUTO_INCREMENT NOT NULL, nom VARCHAR(100) NOT NULL, nom_scientifique VARCHAR(150) NOT NULL, famille VARCHAR(150) NOT NULL, hauteur VARCHAR(255) NOT NULL, image VARCHAR(255) NOT NULL, sol VARCHAR(150) NOT NULL, resume LONGTEXT NOT NULL, entretien LONGTEXT NOT NULL, rotation_des_cultures LONGTEXT NOT NULL, conservation LONGTEXT NOT NULL, contre_indication LONGTEXT NOT NULL, informations_nutritionnelles LONGTEXT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE element (id INT AUTO_INCREMENT NOT NULL, nom VARCHAR(100) NOT NULL, nom_scientifique VARCHAR(150) NOT NULL, famille VARCHAR(150) NOT NULL, hauteur VARCHAR(255) NOT NULL, image VARCHAR(255) NOT NULL, sol VARCHAR(150) NOT NULL, resume LONGTEXT NOT NULL, entretien LONGTEXT NOT NULL, rotation_des_cultures LONGTEXT NOT NULL, conservation LONGTEXT NOT NULL, contre_indication LONGTEXT NOT NULL, informations_nutritionnelles LONGTEXT NOT NULL, benefices LONGTEXT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE element_ami (element_source INT NOT NULL, element_target INT NOT NULL, INDEX IDX_5A1277BD69D76E7 (element_source), INDEX IDX_5A1277BCF782668 (element_target), PRIMARY KEY(element_source, element_target)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE element_ennemi (element_source INT NOT NULL, element_target INT NOT NULL, INDEX IDX_3736BA1FD69D76E7 (element_source), INDEX IDX_3736BA1FCF782668 (element_target), PRIMARY KEY(element_source, element_target)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE element_type_element (element_id INT NOT NULL, type_element_id INT NOT NULL, INDEX IDX_C1AC48C11F1F2A24 (element_id), INDEX IDX_C1AC48C121CFC01 (type_element_id), PRIMARY KEY(element_id, type_element_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');

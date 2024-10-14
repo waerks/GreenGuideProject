@@ -90,6 +90,9 @@ class Element
     #[ORM\OneToMany(targetEntity: Etape::class, mappedBy: 'element', orphanRemoval: true)]
     private Collection $etape;
 
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $benefices = null;
+
     public function __construct()
     {
         $this->ami = new ArrayCollection();
@@ -401,6 +404,18 @@ class Element
                 $etape->setElement(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getBenefices(): ?string
+    {
+        return $this->benefices;
+    }
+
+    public function setBenefices(string $benefices): static
+    {
+        $this->benefices = $benefices;
 
         return $this;
     }
