@@ -16,6 +16,16 @@ class ElementRepository extends ServiceEntityRepository
         parent::__construct($registry, Element::class);
     }
 
+    public function findByCategory(string $category): array
+    {
+        return $this->createQueryBuilder('e')
+            ->join('e.typeElement', 't')
+            ->where('t.nom = :category')
+            ->setParameter('category', $category)
+            ->getQuery()
+            ->getResult();
+    }
+
     //    /**
     //     * @return Element[] Returns an array of Element objects
     //     */

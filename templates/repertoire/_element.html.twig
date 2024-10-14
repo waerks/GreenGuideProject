@@ -1,0 +1,11 @@
+{% for element in elements %}
+        {% for type in element.typeElement %}
+            <a id="cardRepertoire" href="{{ path('repertoire_detail', { 'category' : type.nom, 'nom' : element.nom})}}">
+                <span><img src="{{ asset('/uploads/photosPlantes/' ~ type.nom ~ '/' ~ element.image)}}" alt="{{ element.nom }}"></span>
+                <div class="cardInfo">
+                <h4>{{ element.nom }}</h4>
+                    <span><img src="{{ asset('/build/images/logo/icons/' ~ type.nom ~ '.png') }}" alt="{{ type.nom }}"></span>
+                </div>
+            </a>
+        {% endfor %}
+{% endfor %}

@@ -14,10 +14,10 @@
                 </div>
                 <div class="divTwo">
                     <div class="divCategorie">
-                        <button type="submit" id="allBtn">Toutes les catégories</button>
-                        <button type="submit" id="filtreBtn"><span><img src="{{ asset('/build/images/icons/legume.png')}}" alt="Légumes"></span>Légumes</button>
-                        <button type="submit" id="filtreBtn"><span><img src="{{ asset('/build/images/icons/fruit.png')}}" alt="Fruits"></span>Fruits</button>
-                        <button type="submit" id="filtreBtn"><span><img src="{{ asset('/build/images/icons/plante.png')}}" alt="Plantes"></span>Plantes</button>
+                        <button type="button" id="allBtn" data-category="all">Toutes les catégories</button>
+                        <button type="button" id="legumeBtn" class="filtreBtn" data-category="legume"><span><img src="{{ asset('/build/images/icons/legume.png')}}" alt="Légumes"></span>Légumes</button>
+                        <button type="button" id="fruitBtn" class="filtreBtn" data-category="fruit"><span><img src="{{ asset('/build/images/icons/fruit.png')}}" alt="Fruits"></span>Fruits</button>
+                        <button type="button" id="planteBtn" class="filtreBtn" data-category="plante"><span><img src="{{ asset('/build/images/icons/plante.png')}}" alt="Plantes"></span>Plantes</button>
                     </div>
                 </div>
             </div>
