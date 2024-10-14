@@ -23,17 +23,17 @@
             </div>
         </section>
         <section id="repertoire">
-        {# {% for item in element %}
-                <a id="cardRepertoire" href="{{ path('repertoire_detail', { 'nom': item.nom })}}">
-                    {% for type in item.typeElement %}
-                    <span><img src="{{ asset('/build/images/photosPlantes/' ~ type.nom ~ '/' ~ item.image)}}" alt="{{ item.nom }}"></span>
-                    <div class="cardInfo">
-                    <h4>{{ item.nom }}</h4>
-                        <span><img src="{{ asset('/build/images/logo/icons/' ~ type.nom ~ '.png') }}" alt="{{ type.nom }}"></span>
-                    </div>
-                    {% endfor %}
-                </a>
-        {% endfor %} #}
+        {% for element in elements %}
+                {% for type in element.typeElement %}
+                    <a id="cardRepertoire" href="{{ path('repertoire_detail', { 'category' : type.nom, 'nom' : element.nom})}}">
+                        <span><img src="{{ asset('/uploads/photosPlantes/' ~ type.nom ~ '/' ~ element.image)}}" alt="{{ element.nom }}"></span>
+                        <div class="cardInfo">
+                        <h4>{{ element.nom }}</h4>
+                            <span><img src="{{ asset('/build/images/logo/icons/' ~ type.nom ~ '.png') }}" alt="{{ type.nom }}"></span>
+                        </div>
+                    </a>
+                {% endfor %}
+        {% endfor %}
         </section>
     </div>
 </section>
