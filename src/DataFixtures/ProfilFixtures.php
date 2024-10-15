@@ -3,10 +3,10 @@
 namespace App\DataFixtures;
 
 use App\Entity\User;
+use Faker\Factory as FakerFactory;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-use Faker\Factory as FakerFactory;
 
 class ProfilFixtures extends Fixture
 {

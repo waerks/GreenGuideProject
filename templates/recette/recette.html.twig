@@ -15,27 +15,25 @@
                 <button id="mainBtn">
                     <a href="{{ path('recette_ajouter') }}">Poster une recette</a>
                 </button>
-                <button id="secondBtn">
-                    <a href="">Trier et afficher</a>
-                </button>
+                <button id="secondBtn">Trier et afficher</button>
             </div>
         </section>
-        {# <section id="recette">
-            {% for item in recette %}
-                <a id="cardRecette" href="{{ path('recette_detail', {'nom': item.nom})}}">
-                    <span><img src="{{ asset('/build/images/photosRecette/' ~ item.image)}}" alt="{{item.nom}}"></span>
+        <section id="recette">
+            {% for recette in recettes %}
+                <a id="cardRecette" href="{{ path('recette_detail', {'user_name' : recette.user.pseudo, 'titre' : recette.nom})}}">
+                    <span><img src="{{ asset('/uploads/photosRecette/' ~ recette.image)}}" alt="{{recette.nom}}"></span>
                     <div class="cardInfo">
                         <div class="divLeft">
-                            <h4>{{item.nom}}</h4>
-                            <p>{{item.user.pseudo}}</p>
+                            <h4>{{recette.nom}}</h4>
+                            <p>{{recette.user.pseudo}}</p>
                             </div>
                         <div class="divRight">
                             <p>52</p>
-                            <span><img src="{{ asset('./images/logo/icons/coeur.png')}}" alt="Like"></span>
+                            <span><img src="{{ asset('/build/images/icons/coeur.png')}}" alt="Like"></span>
                         </div>
                     </div>
                 </a>   
-            {% endfor %} #}
+            {% endfor %}
         </section>
     </div>
 </section>
