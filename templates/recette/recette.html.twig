@@ -1,6 +1,5 @@
 {% include "header/header.html.twig" %}
 
-
 <section>
     <div class="container">
         <section id="recetteFiltre">
@@ -20,7 +19,7 @@
         </section>
         <section id="recette">
             {% for recette in recettes %}
-                <a id="cardRecette" href="{{ path('recette_detail', {'user_name' : recette.user.pseudo, 'titre' : recette.nom})}}">
+                <a id="cardRecette" href="{{ path('recette_detail', {'user_slug' : recette.user.slug, 'recette_slug' : recette.slug})}}">
                     <span><img src="{{ asset('/uploads/photosRecette/' ~ recette.image)}}" alt="{{recette.nom}}"></span>
                     <div class="cardInfo">
                         <div class="divLeft">

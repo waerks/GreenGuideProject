@@ -31,23 +31,25 @@ class RecetteController extends AbstractController
 
         return $this->render('recette/recette.html.twig', $vars);
     }
+
     #[Route('/recette/ajouter', name: 'recette_ajouter')]
     public function ajouter(): Response
     {
-        return $this->render('recette/recette_ajouter.html.twig', [
-            'controller_name' => 'RecetteController',
-        ]);
+        return $this->render('recette/recette_ajouter.html.twig');
     }
-    #[Route('/recette/{user_name}/{titre}', name: 'recette_detail')]
-    public function detail(string $userName, string $titre): Response
-    {
-        $recette = $this->doctrine->getRepository(Recette::class)->findOneBy(['nom' => $titre]);
 
-        $user = $this->doctrine->getRepository(User::class)->findOneBy(['user_name' => $userName]);
+    #[Route('/recette/d/{user_slug}/{recette_slug}', name: 'recette_detail')]
+    public function detail(string $user_slug, string $recette_slug): Response
+    {
+    
+        $user = $this->doctrine->getRepository(User::class)->findOneBy(['slug' => $user_slug]);
+        $recette = $this->doctrine->getRepository(Recette::class)->findOneBy(['slug' => $recette_slug]);
+
+        $user = $this->getUser();
 
         $vars = [
             'recette' => $recette,
-            'user_name' => $user
+            'user' => $user
         ];
 
         return $this->render('recette/recette_detail.html.twig', $vars);

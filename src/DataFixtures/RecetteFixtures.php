@@ -8,15 +8,19 @@ use Faker\Factory as FakerFactory;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 class RecetteFixtures extends Fixture
 {
+    private $slugger;
     private $doctrine;
 
-    public function __construct(ManagerRegistry $doctrine)
+    public function __construct(ManagerRegistry $doctrine, SluggerInterface $slugger)
     {
         $this->doctrine = $doctrine;
+        $this->slugger = $slugger;
     }
+
     public function load(ObjectManager $manager): void
     {
         $faker = FakerFactory::create('fr_FR');
@@ -49,6 +53,8 @@ class RecetteFixtures extends Fixture
 
             $randomUser = $users[array_rand($users)];
             $recette->setUser($randomUser);
+
+            $recette->generateSlug($this->slugger);
 
             $manager->persist($recette);
         }

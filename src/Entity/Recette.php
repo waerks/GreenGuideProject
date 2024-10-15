@@ -2,9 +2,10 @@
 
 namespace App\Entity;
 
-use App\Repository\RecetteRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\RecetteRepository;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 #[ORM\Entity(repositoryClass: RecetteRepository::class)]
 class Recette
@@ -41,6 +42,9 @@ class Recette
     #[ORM\ManyToOne(inversedBy: 'recette')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $slug = null;
 
     public function getId(): ?int
     {
@@ -153,5 +157,22 @@ class Recette
         $this->user = $user;
 
         return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): static
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function generateSlug(SluggerInterface $slugger): void
+    {
+        $this->slug = $slugger->slug($this->nom)->lower();
     }
 }

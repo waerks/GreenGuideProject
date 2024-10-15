@@ -6,15 +6,18 @@ use App\Entity\User;
 use Faker\Factory as FakerFactory;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class ProfilFixtures extends Fixture
 {
     private $passwordHasher;
+    private $slugger;
 
-    public function __construct(UserPasswordHasherInterface $passwordHasher)
+    public function __construct(UserPasswordHasherInterface $passwordHasher, SluggerInterface $slugger)
     {
         $this->passwordHasher = $passwordHasher;
+        $this->slugger = $slugger;
     }
     public function load(ObjectManager $manager): void
     {
@@ -31,6 +34,8 @@ class ProfilFixtures extends Fixture
             $user->setAvatar($faker->imageUrl(150, 150, 'people', true));
 
             $user->setRoles(['ROLE_USER']);
+
+            $user->generateSlug($this->slugger);
 
             $manager->persist($user);
         }
