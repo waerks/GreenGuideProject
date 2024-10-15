@@ -19,7 +19,7 @@ class RepertoireFixtures extends Fixture
         // Créer un tableau pour stocker les éléments créés
         $elements = [];
 
-        for ($i = 0; $i < 20; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             $element = new Element();
 
             // Remplir les propriétés de $element
