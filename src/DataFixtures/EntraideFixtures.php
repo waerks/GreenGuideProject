@@ -42,6 +42,10 @@ class EntraideFixtures extends Fixture implements DependentFixtureInterface
             } else {
                 $question->setImage(null); // Pas d'image
             }
+
+            // Générer une date de publication aléatoire entre 2022 et maintenant
+            $datePublication = $faker->dateTimeBetween('2022-01-01', 'now'); // Entre le 1er janvier 2022 et maintenant
+            $question->setDatePublication($datePublication);
     
             $randomUser = $users[array_rand($users)];
             $question->setUser($randomUser);

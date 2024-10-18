@@ -10,7 +10,7 @@
             </span>
          {% endif %}
             <div class="divPost">
-                <p>Posté par <span>{{ question.user.pseudo }}</span></p>
+                <p>Posté par <span>{{ question.user.pseudo }}</span> le <span>{{ question.datePublication|date('d/m/Y') }}</span></p>
                 <div class="divLike">
                     <p>
                         {% if question.commentaire | length > 0 %}

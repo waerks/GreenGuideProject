@@ -39,6 +39,9 @@ class Question
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
 
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $datePublication = null;
+
     public function __construct()
     {
         $this->commentaire = new ArrayCollection();
@@ -142,5 +145,17 @@ class Question
     public function generateSlug(SluggerInterface $slugger): void
     {
         $this->slug = $slugger->slug($this->titre)->lower();
+    }
+
+    public function getDatePublication(): ?\DateTimeInterface
+    {
+        return $this->datePublication;
+    }
+
+    public function setDatePublication(\DateTimeInterface $datePublication): static
+    {
+        $this->datePublication = $datePublication;
+
+        return $this;
     }
 }

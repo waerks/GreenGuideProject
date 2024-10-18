@@ -24,7 +24,7 @@
                 <a id="cardEntraide" href="{{path('entraide_detail', { 'user_slug' : question.user.slug, 'question_slug' : question.slug})}}">
                     <div class="divAuteur">
                         <h5>{{question.user.pseudo}}</h5>
-                        <p>Posté le <span>12/08/24</span></p>
+                        <p>Posté le <span>{{ question.datePublication|date('d/m/Y') }}</span></p>
                     </div>
                     <div class="divTitreQ">
                         <h4>{{question.titre}}</h4>
