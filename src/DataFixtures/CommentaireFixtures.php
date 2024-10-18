@@ -44,7 +44,13 @@ class CommentaireFixtures extends Fixture implements DependentFixtureInterface
     
             $commentaire->setTitre($faker->words(3, true));
             $commentaire->setContenu($faker->paragraph());
-            $commentaire->setImage($faker->imageUrl(640, 480, 'people'));
+            
+            // Générer une image aléatoire ou null
+            if ($faker->boolean(50)) { // 50% de chance d'avoir une image
+                $commentaire->setImage($faker->imageUrl(640, 480, 'abstract'));
+            } else {
+                $commentaire->setImage(null); // Pas d'image
+            }
 
             // Attribution aléatoire d'un utilisateur
             $randomUser = $users[array_rand($users)];
@@ -77,7 +83,13 @@ class CommentaireFixtures extends Fixture implements DependentFixtureInterface
                     $reponse = new Commentaire();
                     $reponse->setTitre($faker->sentence());
                     $reponse->setContenu($faker->paragraph());
-                    $reponse->setImage($faker->optional()->imageUrl(640, 480, 'abstract'));
+
+                    // Générer une image aléatoire ou null
+                    if ($faker->boolean(50)) { // 50% de chance d'avoir une image
+                        $reponse->setImage($faker->imageUrl(640, 480, 'abstract'));
+                    } else {
+                        $reponse->setImage(null); // Pas d'image
+                    }
         
                     // Associer un utilisateur aléatoire
                     $randomUser = $users[array_rand($users)];

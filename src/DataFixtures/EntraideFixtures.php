@@ -35,7 +35,13 @@ class EntraideFixtures extends Fixture implements DependentFixtureInterface
     
             $question->setTitre($faker->words(5, true));
             $question->setContenu($faker->paragraph());
-            $question->setImage($faker->imageUrl(640, 480, 'abstract'));
+
+            // Générer une image aléatoire ou null
+            if ($faker->boolean(50)) { // 50% de chance d'avoir une image
+                $question->setImage($faker->imageUrl(640, 480, 'abstract'));
+            } else {
+                $question->setImage(null); // Pas d'image
+            }
     
             $randomUser = $users[array_rand($users)];
             $question->setUser($randomUser);

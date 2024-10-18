@@ -30,7 +30,11 @@
                         <h4>{{question.titre}}</h4>
                     </div>
                     <div class="divImg">
-                        <img src="{{ asset('/uploads/photosEntraide/default.png')}}" alt="Aide image">
+                        {% if question.image %}
+                            <img src="{{ asset('/uploads/photosEntraide/' ~ question.image)}}" alt="{{question.titre}}">
+                        {% else %}
+                            <img src="{{ asset('/uploads/photosEntraide/default.png')}}" alt="Pas d'image">
+                        {% endif %}
                     </div>
                     <div class="divInfos">
                         <p><span><img src="{{ asset('/build/images/icons/bulle.png')}}" alt="Commentaire"></span>{{ question.commentaire|length }}</p>

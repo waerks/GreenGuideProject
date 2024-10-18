@@ -4,44 +4,58 @@
 <section>
     <div class="container">
          <section id="entraideDImg">
+         {% if question.image %}
             <span>
-                <img src="{{ asset('./images/images/default.png')}}" alt="">
+                <img src="{{ asset('/uploads/photosEntraide/' ~ question.image)}}" alt="">
             </span>
+         {% endif %}
             <div class="divPost">
-                <p>Posté par <span>nanais._</span></p>
+                <p>Posté par <span>{{ question.user.pseudo }}</span></p>
                 <div class="divLike">
-                    <p>Pas répondu</p>
-                    <button id="reponse" type="submit"><img src="{{ asset('./images/logo/icons/non.png')}}" alt=""></button>
+                    <p>
+                        {% if question.commentaire | length > 0 %}
+                            Répondu
+                            <span><img src="{{ asset('/build/images/icons/oui.png') }}" alt="Répondu"></span>
+                        {% else %}
+                            Pas répondu
+                            <span><img src="{{ asset('/build/images/icons/non.png') }}" alt="Pas répondu"></span>
+                        {% endif %}
+                    </p>
                 </div>
             </div>
         </section>
         <section id="entraideDetail">
             <div class="divTitre">
-                <h2>Pourquoi mes tomates ne rougissent pas ?</h2>
+                <h2>{{ question.titre }}</h2>
             </div>
             <div class="divInfos">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque illo ullam dolor sed natus autem tenetur officiis culpa hic adipisci voluptatum debitis ut eum corporis expedita nam, a totam commodi.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa nisi atque voluptatibus eligendi magni deserunt dolorum asperiores quos adipisci ad ratione minima maxime numquam ex reprehenderit vero, sequi ipsum sed.</p>
+                <p>{{ question.contenu }}</p>
             </div>
         </section>
         <section id="entraideCommentaire">
             <button type="submit" id="mainBtn">Répondre</button>
-            <div class="commentaire">
-                <div class="comImg">
-                    <span>
-                        <img src="./images/images/default.jpg" alt=""></span>
+            {% for commentaire in commentaires %}
+                <div class="commentaire {% if commentaire.commentaireParent %}reponse{% endif %} {% if not commentaire.image %}sans-image{% endif %}">
+                    {% if commentaire.image %}
+                        <div class="comImg">
+                            <span>
+                                <img src="{{ asset('/uploads/photosEntraide/' ~ commentaire.image) }}" alt="">
+                            </span>
+                        </div>
+                    {% endif %}
+                    <div class="comTitre">
+                        <h4>{{ commentaire.titre }}</h4>
+                    </div>
+                    <div class="comContenu">
+                        <p>{{ commentaire.contenu }}</p>
+                    </div>
+                    <div class="comBtn">
+                        <button type="submit" id="mainBtn">Répondre</button>
+                    </div>
                 </div>
-                <div class="comTitre">
-                    <h4>A cause du soleil.</h4>
-                </div>
-                <div class="comContenu">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque illo ullam dolor sed natus autem tenetur officiis culpa hic adipisci voluptatum debitis ut eum corporis expedita nam, a totam commodi.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa nisi atque voluptatibus eligendi magni deserunt dolorum asperiores quos adipisci ad ratione minima maxime numquam ex reprehenderit vero, sequi ipsum sed.</p>
-                </div>
-                <div class="comBtn">
-                    <button type="submit" id="mainBtn">Répondre</button>
-                </div>
-            </div>
+            {% else %}
+                <p>Aucun commentaire pour le moment.</p>
+            {% endfor %}
         </section>
     </div>
 </section>

@@ -46,7 +46,7 @@ class EntraideController extends AbstractController
     {
         $user = $this->doctrine->getRepository(User::class)->findOneBy(['slug' => $user_slug]);
         $question = $this->doctrine->getRepository(Question::class)->findOneBy(['slug' => $question_slug]);
-        $commentaires = $this->doctrine->getRepository(Question::class)->findAll();
+        $commentaires = $question->getCommentaire();
 
         $vars = [
             'question' => $question,
