@@ -45,7 +45,7 @@ class RecetteFixtures extends Fixture
 
             $etapes = [];
             for ($k=0; $k < 5; $k++) { 
-                $etapes[] = $faker->word();
+                $etapes[] = $faker->paragraph();
             }
             $recette->setEtapes($etapes);
 

@@ -2,11 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\QuestionRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\QuestionRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 #[ORM\Entity(repositoryClass: QuestionRepository::class)]
 class Question
@@ -34,6 +35,9 @@ class Question
      */
     #[ORM\OneToMany(targetEntity: Commentaire::class, mappedBy: 'question', orphanRemoval: true)]
     private Collection $commentaire;
+
+    #[ORM\Column(length: 255)]
+    private ?string $slug = null;
 
     public function __construct()
     {
@@ -121,5 +125,22 @@ class Question
         }
 
         return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): static
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function generateSlug(SluggerInterface $slugger): void
+    {
+        $this->slug = $slugger->slug($this->titre)->lower();
     }
 }
