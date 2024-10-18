@@ -21,7 +21,7 @@
         </section>
         <section id="entraide">
             {% for question in questions %}
-                <a id="cardEntraide" href="{{path('entraide_detail', { 'user_name' : question.user.pseudo, 'titre' : question.titre})}}">
+                <a id="cardEntraide" href="{{path('entraide_detail', { 'user_slug' : question.user.slug, 'question_slug' : question.slug})}}">
                     <div class="divAuteur">
                         <h5>{{question.user.pseudo}}</h5>
                         <p>Posté le <span>12/08/24</span></p>
@@ -33,8 +33,16 @@
                         <img src="{{ asset('/uploads/photosEntraide/default.png')}}" alt="Aide image">
                     </div>
                     <div class="divInfos">
-                        <p><span><img src="{{ asset('/build/images/icons/bulle.png')}}" alt="Commentaire"></span> 0</p>
-                        <p>Pas répondu <span><img src="{{ asset('/build/images/icons/non.png')}}" alt="Pas répondu"></span></p>
+                        <p><span><img src="{{ asset('/build/images/icons/bulle.png')}}" alt="Commentaire"></span>{{ question.commentaire|length }}</p>
+                        <p>
+                        {% if question.commentaire | length > 0 %}
+                            Répondu
+                            <span><img src="{{ asset('/build/images/icons/oui.png') }}" alt="Répondu"></span>
+                        {% else %}
+                            Pas répondu
+                            <span><img src="{{ asset('/build/images/icons/non.png') }}" alt="Pas répondu"></span>
+                        {% endif %}
+                        </p>
                     </div>
                 </a>
             {% endfor %}

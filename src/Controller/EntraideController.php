@@ -29,7 +29,7 @@ class EntraideController extends AbstractController
 
         $vars = [
             'users' => $users,
-            'questions' => $questions
+            'questions' => $questions,
         ];
 
         return $this->render('entraide/entraide.html.twig', $vars);
@@ -41,10 +41,19 @@ class EntraideController extends AbstractController
         return $this->render('entraide/entraide_ajouter.html.twig');
     }
     
-    #[Route('/entraide/d/{user_slug}/{recette_slug}', name: 'entraide_detail')]
-    public function detail(string $userName, string $titre): Response
+    #[Route('/entraide/d/{user_slug}/{question_slug}', name: 'entraide_detail')]
+    public function detail(string $user_slug, string $question_slug): Response
     {
+        $user = $this->doctrine->getRepository(User::class)->findOneBy(['slug' => $user_slug]);
+        $question = $this->doctrine->getRepository(Question::class)->findOneBy(['slug' => $question_slug]);
+        $commentaires = $this->doctrine->getRepository(Question::class)->findAll();
+
+        $vars = [
+            'question' => $question,
+            'user' => $user,
+            'commentaires' => $commentaires
+        ];
     
-        return $this->render('entraide/entraide_detail.html.twig');
+        return $this->render('entraide/entraide_detail.html.twig', $vars);
     }
 }
