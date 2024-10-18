@@ -13,6 +13,10 @@
     }
 
     // ASSETS
+    button {
+        cursor: pointer;
+    }
+
     #mainBtn {
         width: 150px;
         height: 35px;
@@ -31,7 +35,7 @@
         }
     }
 
-    #secondBtn {
+    .secondBtn {
         width: 150px;
         height: 35px;
         border-radius: 20px;
@@ -40,6 +44,24 @@
 
         &:hover {
             outline: 2px solid $secondary;
+            outline-offset: 3px;
+        }
+
+        a {
+            font-size: 14px;
+            text-decoration: none;
+        }
+    }
+
+    .thirdBtn {
+        width: 150px;
+        height: 35px;
+        border-radius: 20px;
+        border: none;  
+        background-color: $background;
+
+        &:hover {
+            outline: 2px solid $background;
             outline-offset: 3px;
         }
 
@@ -981,6 +1003,43 @@
                     justify-content: space-between;
                     align-items: center;
                 }
+
+                .divTriAff {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-end;
+
+                    .cont {
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 10px 0;
+                        background-color: $secondary;
+                        border-radius: 30px;
+                        padding: 30px;
+
+                        hr {
+                            width: 100%;
+                            color: $background;
+                        }
+                        
+                        .affDate, .affON {
+                            width: 100%;
+                            height: 50%;
+                            gap: 0 30px;
+    
+                            display: flex;
+                            justify-content: flex-end;
+                            align-items: center;
+    
+                        }
+                    }
+
+                }
             }
 
             #recette {
@@ -1227,6 +1286,43 @@
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
+                }
+
+                .divTriAff {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-end;
+
+                    .cont {
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 10px 0;
+                        background-color: $secondary;
+                        border-radius: 30px;
+                        padding: 30px;
+
+                        hr {
+                            width: 100%;
+                            color: $background;
+                        }
+                        
+                        .affDate, .affON {
+                            width: 100%;
+                            height: 50%;
+                            gap: 0 30px;
+    
+                            display: flex;
+                            justify-content: flex-end;
+                            align-items: center;
+    
+                        }
+                    }
+
                 }
             }
 

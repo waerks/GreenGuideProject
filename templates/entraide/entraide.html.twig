@@ -14,9 +14,25 @@
                 <button type="submit" id="mainBtn">
                     <a href="{{path('entraide_ajouter')}}">Poser une question</a>
                 </button>
-                <button type="submit" id="secondBtn">
-                    <a href="">Trier et afficher</a>
-                </button>
+                <button type="submit" class="secondBtn" id="triBtn">Trier et afficher</button>
+            </div>
+            <div class="divTriAff" style="display: none";>
+                <div class="cont">
+                    <div class="affDate">
+                        <button type="button" class="thirdBtn" id="ordreCroissantBtn">Ordre croissant</button>
+                        <button type="button" class="thirdBtn" id="ordreDecroissantBtn">Ordre décroissant</button>
+                    </div>
+                    <hr>
+                    <div class="affON">
+                        <button type="button" class="thirdBtn" id="recent">Les plus récents</button>
+                        <button type="button" class="thirdBtn" id="ancien">Les plus anciens</button>
+                    </div>
+                    <hr>
+                    <div class="affON">
+                        <button type="button" class="thirdBtn" id="plusCommentes">Les plus commentés</button>
+                        <button type="button" class="thirdBtn" id="moinsCommentes">Les moins commentés</button>
+                    </div>
+                </div>
             </div>
         </section>
         <section id="entraide">
@@ -24,7 +40,7 @@
                 <a id="cardEntraide" href="{{path('entraide_detail', { 'user_slug' : question.user.slug, 'question_slug' : question.slug})}}">
                     <div class="divAuteur">
                         <h5>{{question.user.pseudo}}</h5>
-                        <p>Posté le <span>{{ question.datePublication|date('d/m/Y') }}</span></p>
+                        <p>Posté le <span data-date="{{ question.datePublication|date('Y-m-d H:i:s') }}">{{ question.datePublication|date('d/m/Y') }}</span></p>
                     </div>
                     <div class="divTitreQ">
                         <h4>{{question.titre}}</h4>

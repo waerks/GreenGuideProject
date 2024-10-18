@@ -14,7 +14,20 @@
                 <button id="mainBtn">
                     <a href="{{ path('recette_ajouter') }}">Poster une recette</a>
                 </button>
-                <button id="secondBtn">Trier et afficher</button>
+                <button class="secondBtn" id="triBtn">Trier et afficher</button>
+            </div>
+            <div class="divTriAff" style="display: none";>
+                <div class="cont">
+                    <div class="affDate">
+                        <button type="button" class="thirdBtn" id="ordreCroissantBtn">Ordre croissant</button>
+                        <button type="button" class="thirdBtn" id="ordreDecroissantBtn">Ordre décroissant</button>
+                    </div>
+                    <hr>
+                    <div class="affON">
+                        <button type="button" class="thirdBtn" id="plusLikesBtn">Les plus likés</button>
+                        <button type="button" class="thirdBtn" id="moinsLikesBtn">Les moins likés</button>
+                    </div>
+                </div>
             </div>
         </section>
         <section id="recette">
