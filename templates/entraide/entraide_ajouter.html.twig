@@ -9,24 +9,23 @@
             </div>
         </section>
         <section id="aideAjout">
-            <form action="" method="post">
+            {{ form_start(form, { 'attr': {'enctype': 'multipart/form-data'} }) }}
                 <h3>Votre question</h3>
                 <hr>
                 
-                <label for="titre">Le titre de votre question</label>
-                <input type="text" name="recetteajout" id="input">
-                <label for="file">Photo de votre question</label>
-                <input type="file" name="recetteajout" id="input">
-                <label for="conseil">Votre question</label>
-                <textarea name="etape" id="message"></textarea>
+                {{ form_label(form.titre, 'Le titre de votre question') }}
+                {{ form_widget(form.titre, {'attr': {'class': 'input'}}) }}
+
+                {{ form_label(form.image, 'Photo de votre question') }}
+                {{ form_widget(form.image, {'attr': {'class': 'input'}}) }}
+
+                {{ form_label(form.contenu, 'Votre question') }}
+                {{ form_widget(form.contenu, {'attr': {'class': 'input'}}) }}
                 
-                <button type="submit" id="mainBtn">
-                    <a href="./front-page.php">Poster</a>
-                </button>
-            </form>
+                <button type="submit" id="mainBtn">Poster</button>
+            {{ form_end(form) }}
         </section>
     </div>
 </section>
-
 
 {% include "footer/footer.html.twig" %}
