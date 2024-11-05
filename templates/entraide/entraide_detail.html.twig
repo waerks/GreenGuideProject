@@ -6,7 +6,7 @@
          <section id="entraideDImg">
          {% if question.image %}
             <span>
-                <img src="{{ asset('/uploads/photosEntraide/' ~ question.image)}}" alt="">
+                <img src="{{ asset('uploads/photosEntraide/' ~ question.id ~ '/' ~ question.image)}}" alt="{{question.titre}}">
             </span>
          {% endif %}
             <div class="divPost">
@@ -39,7 +39,7 @@
                     {% if commentaire.image %}
                         <div class="comImg">
                             <span>
-                                <img src="{{ asset('/uploads/photosEntraide/' ~ commentaire.image) }}" alt="">
+                                <img src="{{ asset('uploads/photosEntraide/' ~ question.id ~ '/commentaires/' ~ commentaire.image) }}" alt="{{question.titre}}">
                             </span>
                         </div>
                     {% endif %}

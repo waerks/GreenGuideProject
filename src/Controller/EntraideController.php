@@ -150,6 +150,28 @@ class EntraideController extends AbstractController
             // Génération du slug pour le commentaire
             $commentaireSlug = $this->slugger->slug($commentaire->getTitre())->lower();
             $commentaire->setSlug($commentaireSlug);
+
+            // Gestion de l'image
+            $imageFile = $form->get('image')->getData();
+
+            if ($imageFile) {
+                // Création du répertoire 
+                $questionID = $question->getId();
+
+                $commentaireDir = $this->getParameter('questions_directory') . '/' . $questionID . '/'. 'commentaires/';
+                if (!is_dir($commentaireDir)) {
+                    mkdir($commentaireDir, 0755, true); // Créer le répertoire uniquement s'il n'existe pas
+                }
+
+                // Nom unique pour le fichier image
+                $newFileName = uniqid() . '.' . $imageFile->guessExtension();
+
+                // Déplacer l'image vers le dossier cible
+                $imageFile->move($commentaireDir, $newFileName);
+
+                // Enregistrement du nom de fichier
+                $commentaire->setImage($newFileName);
+            }
     
             $em = $this->doctrine->getManager();
             $em->persist($commentaire);
