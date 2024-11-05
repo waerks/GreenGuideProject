@@ -33,7 +33,7 @@
             </div>
         </section>
         <section id="entraideCommentaire">
-            <button type="submit" id="mainBtn">Répondre</button>
+            <button type="submit" id="mainBtn" data-statut="question"><a href="{{ path('entraide_reponse_question', { question_slug: question.slug })}}">Répondre</a></button>
             {% for commentaire in commentaires %}
                 <div class="commentaire {% if commentaire.commentaireParent %}reponse{% endif %} {% if not commentaire.image %}sans-image{% endif %}">
                     {% if commentaire.image %}
@@ -50,7 +50,7 @@
                         <p>{{ commentaire.contenu }}</p>
                     </div>
                     <div class="comBtn">
-                        <button type="submit" id="mainBtn">Répondre</button>
+                        <button type="submit" id="mainBtn" data-statut="commentaire"><a href="{{ path('entraide_reponse_commentaire', { commentaire_slug: commentaire.slug })}}">Répondre</a></button>
                     </div>
                 </div>
             {% else %}
@@ -59,6 +59,5 @@
         </section>
     </div>
 </section>
-
 
 {% include "footer/footer.html.twig" %}

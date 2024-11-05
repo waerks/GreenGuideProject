@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Commentaire;
 use DateTime;
 use App\Entity\User;
 use App\Entity\Question;
+use App\Form\CommentaireType;
 use App\Form\QuestionType;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
@@ -118,5 +120,64 @@ class EntraideController extends AbstractController
         ];
     
         return $this->render('entraide/entraide_detail.html.twig', $vars);
+    }
+
+    #[Route('/entraide/reponse/{question_slug}', name: 'entraide_reponse_question')]
+    public function question(Request $request, string $question_slug): Response
+    {
+        $question = $this->doctrine->getRepository(Question::class)->findOneBy(['slug' => $question_slug]);
+    
+        if (!$question) {
+            throw $this->createNotFoundException("Question non trouvée.");
+        }
+    
+        // Récupérer le pseudo de l'utilisateur ayant posé la question
+        $pseudoUser = $question->getUser()->getPseudo();
+        $titreQuestion = $question->getTitre();
+    
+        // Créer un nouveau Commentaire
+        $commentaire = new Commentaire();
+        $form = $this->createForm(CommentaireType::class, $commentaire);
+        $form->handleRequest($request);
+    
+        if ($form->isSubmitted() && $form->isValid()) {
+            // Associez le commentaire à l'utilisateur et à la question existants
+            $user = $this->getUser();
+            $commentaire->setUser($user);
+
+            $commentaire->setQuestion($question);
+
+            // Génération du slug pour le commentaire
+            $commentaireSlug = $this->slugger->slug($commentaire->getTitre())->lower();
+            $commentaire->setSlug($commentaireSlug);
+    
+            $em = $this->doctrine->getManager();
+            $em->persist($commentaire);
+            $em->flush();
+    
+            return $this->redirectToRoute('entraide_detail', [
+                'user_slug' => $question->getUser()->getSlug(),
+                'question_slug' => $question_slug,
+            ]);
+        }
+    
+        return $this->render('entraide/entraide_reponse_question.html.twig', [
+            'question' => $question,
+            'pseudoUser' => $pseudoUser,
+            'titreQuestion' => $titreQuestion,
+            'form' => $form->createView()
+        ]);
+    }    
+
+    #[Route('/entraide/reponse/{commentaire_slug}', name: 'entraide_reponse_commentaire')]
+    public function commentaire(string $commentaire_slug): Response
+    {
+        $commentaire = $this->doctrine->getRepository(Commentaire::class)->findOneBy(['slug' => $commentaire_slug]);
+
+        $vars = [
+            'commentaire' => $commentaire,
+        ];
+    
+        return $this->render('entraide/entraide_reponse_commentaire.html.twig', $vars);
     }
 }
