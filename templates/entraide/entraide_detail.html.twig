@@ -49,9 +49,11 @@
                     <div class="comContenu">
                         <p>{{ commentaire.contenu }}</p>
                     </div>
-                    <div class="comBtn">
-                        <button type="submit" id="mainBtn" data-statut="commentaire"><a href="{{ path('entraide_reponse_commentaire', { commentaire_slug: commentaire.slug })}}">Répondre</a></button>
-                    </div>
+                    {% if not commentaire.commentaireParent %}
+                        <div class="comBtn">
+                            <button type="submit" id="mainBtn" data-statut="commentaire"><a href="{{ path('entraide_reponse_commentaire', { commentaire_slug: commentaire.slug })}}">Répondre</a></button>
+                        </div>
+                    {% endif %}
                 </div>
             {% else %}
                 <p>Aucun commentaire pour le moment.</p>
