@@ -122,7 +122,7 @@ class EntraideController extends AbstractController
         return $this->render('entraide/entraide_detail.html.twig', $vars);
     }
 
-    #[Route('/entraide/reponse/{question_slug}', name: 'entraide_reponse_question')]
+    #[Route('/entraide/reponse-question/{question_slug}', name: 'entraide_reponse_question')]
     public function question(Request $request, string $question_slug): Response
     {
         $question = $this->doctrine->getRepository(Question::class)->findOneBy(['slug' => $question_slug]);
@@ -191,15 +191,74 @@ class EntraideController extends AbstractController
         ]);
     }    
 
-    #[Route('/entraide/reponse/{commentaire_slug}', name: 'entraide_reponse_commentaire')]
-    public function commentaire(string $commentaire_slug): Response
+    #[Route('/entraide/reponse-commentaire/{commentaire_slug}', name: 'entraide_reponse_commentaire')]
+    public function commentaire(Request $request, string $commentaire_slug): Response
     {
-        $commentaire = $this->doctrine->getRepository(Commentaire::class)->findOneBy(['slug' => $commentaire_slug]);
+        $commentaireParent = $this->doctrine->getRepository(Commentaire::class)->findOneBy(['slug' => $commentaire_slug]);
 
-        $vars = [
-            'commentaire' => $commentaire,
-        ];
-    
-        return $this->render('entraide/entraide_reponse_commentaire.html.twig', $vars);
+        if (!$commentaireParent) {
+            throw $this->createNotFoundException("Commentaire non trouvé.");
+        }
+
+        // Récupérer le titre du commentaire parent
+        $titreCommentaire = $commentaireParent->getTitre();
+
+        // Récupérer la question associée au commentaire parent
+        $question = $commentaireParent->getQuestion();
+
+        // Créer un nouveau commentaire
+        $commentaire = new Commentaire();
+        $form = $this->createForm(CommentaireType::class, $commentaire);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // Associez le commentaire à l'utilisateur et au commentaire parent
+            $user = $this->getUser();
+            $commentaire->setUser($user);
+
+            // Associer le commentaire parent
+            $commentaire->setQuestion($question);
+            $commentaire->setCommentaireParent($commentaireParent);
+
+            // Génération du slug pour le commentaire
+            $commentaireSlug = $this->slugger->slug($commentaire->getTitre())->lower();
+            $commentaire->setSlug($commentaireSlug);
+
+            // Gestion de l'image
+            $imageFile = $form->get('image')->getData();
+
+            if ($imageFile) {
+                // Création du répertoire 
+                $questionID = $commentaireParent->getQuestion()->getId();
+                $commentaireDir = $this->getParameter('questions_directory') . '/' . $questionID . '/'. 'commentaires/';
+
+                if (!is_dir($commentaireDir)) {
+                    mkdir($commentaireDir, 0755, true); // Créer le répertoire uniquement s'il n'existe pas
+                }
+
+                // Nom unique pour le fichier image
+                $newFileName = uniqid() . '.' . $imageFile->guessExtension();
+
+                // Déplacer l'image vers le dossier cible
+                $imageFile->move($commentaireDir, $newFileName);
+
+                // Enregistrement du nom de fichier
+                $commentaire->setImage($newFileName);
+            }
+
+            $em = $this->doctrine->getManager();
+            $em->persist($commentaire);
+            $em->flush();
+
+            return $this->redirectToRoute('entraide_detail', [
+                'user_slug' => $commentaireParent->getUser()->getSlug(),
+                'question_slug' => $commentaireParent->getQuestion()->getSlug(),
+            ]);
+        }
+
+        return $this->render('entraide/entraide_reponse_commentaire.html.twig', [
+            'form' => $form->createView(),
+            'titreCommentaire' => $titreCommentaire,
+        ]);
     }
 }
