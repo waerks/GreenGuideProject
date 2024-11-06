@@ -15,10 +15,6 @@
             <button data-route="{{ path('profil')}}" type="submit" id="mainBtn">Modifier</button>
             {{form_end(form)}} #}
 
-
-
-
-            
             <form action="" method="post">
                 <h3>Ça se passse ici !</h3>
                 <hr>
@@ -38,33 +34,33 @@
             </form>
         </section>
         <section id="divAllRecette">
-            {# {% if recettes is empty %} #}
+            {% if recettes is empty %}
                 <h3>Vous n'avez encore posté</h3>
                 <div class="rienPoster">
                     <img src="{{ asset('build/images/images/rien.png') }}" alt="Rien">
                 </div>
                 
-            {# {% else %} #}
+            {% else %}
             <h3>Toutes vos recettes postées</h3>
             <div class="contient">
                 <div class="allPost">
-                {# {% for recette in recettes %}
-                    <a id="cardRecette" href="{{ path('recette_detail', {'nom': recette.nom}) }}">
+                {% for recette in recettes %}
+                    <a id="cardRecette" href="{{ path('recette_detail', {'user_slug' : recette.user.slug, 'recette_slug' : recette.slug})}}">
                         <span><img src="{{ asset('build/images/photosRecette/' ~ recette.image) }}" alt=""></span>
                         <div class="cardInfo">
                             <div class="divLeft">
                                 <h4>{{recette.nom}}</h4>
                             </div>
                             <div class="divRight">
-                                <p>52</p>
-                                <span><img src="{{ asset('build/images/logo/icons/coeur.png') }}" alt="Like"></span>
+                                <p>{{ recette.getLikeCount() }}</p>
+                                <span><img src="{{ asset('/build/images/icons/coeur.png') }}" alt="Like"></span>
                             </div>
                         </div>
                     </a>
                     
-                {% endfor %} #}
+                {% endfor %}
                 </div>
-            {# {% endif %} #}
+            {% endif %}
             </div>
         </section>
     </div>
@@ -73,51 +69,3 @@
 
 
 {% include "footer/footer.html.twig" %}
-
-
-<!-- In your Twig template -->
-// <script>
-//     document.addEventListener('DOMContentLoaded', () => {
-//         const form = document.getElementById('formProfil'); // Make sure your form has this ID
-
-//         const route = document.getElementById('mainBtn').dataset.route;
-        
-//         console.log(route);
-
-
-//         form.addEventListener('submit', (event) => {
-//             event.preventDefault(); // Prevent the default form submission
-
-//             const formData = new FormData(form);
-
-//             fetch( route , {
-//                 method: 'POST',
-//                 body: formData,
-//                 headers: {
-//                     'X-Requested-With': 'XMLHttpRequest' // Important for Symfony to recognize it as an AJAX request
-//                 },
-//             })
-//             .then(response => {
-//                 if (!response.ok) {
-//                     return response.json().then(err => {
-//                         throw new Error(err.errors.map(e => e.message).join(', '));
-//                     });
-//                 }
-//                 return response.json();
-//             })
-//             .then(data => {
-//                 // Show success message
-//                 const successMessage = document.createElement('div');
-//                 successMessage.className = 'alert alert-success';
-//                 successMessage.innerText = 'Your profile has been updated successfully!';
-//                 document.body.appendChild(successMessage); // Append the message to the body or a specific container
-//                 console.log(successMessage);
-                
-
-//             })
-//             .catch(error => {
-//                 console.error('Error:', error.message); // Handle error response
-//             });
-//         });
-//     });
-// </script>
