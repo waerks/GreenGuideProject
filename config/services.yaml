@@ -7,6 +7,7 @@ parameters:
     uploads_directory: '%kernel.project_dir%/public/uploads'
     avatars_directory: '%uploads_directory%/avatars'
     questions_directory: '%uploads_directory%/photosEntraide'
+    recettes_directory: '%uploads_directory%/photosRecette'
     
 services:
     # default configuration for services in *this* file

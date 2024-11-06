@@ -22,8 +22,8 @@
 
             <h3>Ingrédients</h3>
             <hr>
-            {{ form_label(form.nombreDePersonnes, 'Nombre de personnes') }}
-            {{ form_widget(form.nombreDePersonnes, {'attr': {'class': 'input'}}) }}
+            {{ form_label(form.nombreDePersonne, 'Nombre de personnes') }}
+            {{ form_widget(form.nombreDePersonne, {'attr': {'class': 'input'}}) }}
 
             {{ form_label(form.ingredients, 'Ingredients') }}
 
@@ -31,9 +31,10 @@
                 {% for ingredient in form.ingredients %}
                     <div class="ingredient-item">
                         {{ form_row(ingredient) }}
-                        <button type="button" class="remove-ingredient">Remove Ingredient</button>
+                        <button type="button" class="remove-ingredient">🗑️</button>
                     </div>
                 {% endfor %}
+                <button type="button" id="add-ingredient" class="secondBtn">Ajouter Ingrédient</button>
             </div>
 
             <h3>Pratique</h3>
@@ -45,14 +46,15 @@
 
             <h3>Préparation</h3>
             <hr>
-			<div class="etapes" data-prototype="{{ form_widget(form.etapes.vars.prototype)|e('html_attr') }}" data-index="{{ form.etapes|length }}">
-				{% for etape in form.etapes %}
-					<div class="etape-item">
-						{{ form_row(etape) }}
-						<button type="button" class="remove-etape">Remove Step</button>
-					</div>
-				{% endfor %}
-			</div>
+            <div class="etapes" data-prototype="{{ form_widget(form.etapes.vars.prototype)|e('html_attr') }}" data-index="{{ form.etapes|length }}">
+                {% for etape in form.etapes %}
+                    <div class="etape-item">
+                        {{ form_row(etape) }}
+                        <button type="button" class="remove-etape">🗑️</button>
+                    </div>
+                {% endfor %}
+                <button type="button" id="add-etape" class="secondBtn">Ajouter Étape</button>
+            </div>
 
 			{{ form_widget (form._token) }}
             <button type="submit" id="mainBtn">Poster</button>

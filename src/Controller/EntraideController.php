@@ -83,7 +83,9 @@ class EntraideController extends AbstractController
                 // Maintenant que l'ID est généré, créez le dossier de l'utilisateur
                 $questionID = $question->getId();
                 $questionDir = $this->getParameter('questions_directory') . '/' . $questionID;
-                mkdir($questionDir, 0755, true);
+                if (!is_dir($questionDir)) {
+                    mkdir($questionDir, 0755, true); // Créer le répertoire uniquement s'il n'existe pas
+                }
         
                 // Déplacer le fichier image dans le sous-dossier de la question
                 $newFileName = uniqid() . '.' . $imageFile->guessExtension();
