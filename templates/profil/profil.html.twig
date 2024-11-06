@@ -7,14 +7,7 @@
                 <h2>Souhaitez-vous modifier votre profil ?</h2>
             </div>
         </section>
-
-
         <section id="aideAjout">
-            {# {{form_start(form , {attr: { id: 'formProfil' }})}}
-            {{form_widget(form)}}
-            <button data-route="{{ path('profil')}}" type="submit" id="mainBtn">Modifier</button>
-            {{form_end(form)}} #}
-
             <form action="" method="post">
                 <h3>Ça se passse ici !</h3>
                 <hr>
@@ -28,9 +21,7 @@
                 <label for="mail">Adresse mail</label>
                 <input type="text" name="recetteajout" class="input" placeholder="{{app.user.email}}">
                 
-                <button type="submit" id="mainBtn">
-                    <a href="./front-page.php">Modifier</a>
-                </button>
+                <button type="submit" id="mainBtn">Modifier</button>
             </form>
         </section>
         <section id="divAllRecette">
@@ -38,8 +29,7 @@
                 <h3>Vous n'avez encore posté</h3>
                 <div class="rienPoster">
                     <img src="{{ asset('build/images/images/rien.png') }}" alt="Rien">
-                </div>
-                
+                </div> 
             {% else %}
             <h3>Toutes vos recettes postées</h3>
             <div class="contient">
@@ -57,7 +47,6 @@
                             </div>
                         </div>
                     </a>
-                    
                 {% endfor %}
                 </div>
             {% endif %}
@@ -65,7 +54,5 @@
         </section>
     </div>
 </section>
-
-
 
 {% include "footer/footer.html.twig" %}

@@ -29,7 +29,7 @@
                 <p>Recevez nos recettes et astuces gourmandes directement dans votre boîte mail !</p>
                 <div class="newsinscription">
                     <input type="email" name="newsletters" class="input">
-                    <button type="submit" id="secondBtn">
+                    <button type="submit" class="secondBtn">
                         <a href="#inscription">S'inscrire</a>
                     </button>
                 </div>
@@ -37,19 +37,29 @@
         <section id="contact">
             <h3>Des questions&nbsp;? Contactez-nous&nbsp;!</h3>
             <div class="formcontact">
-                <form action="" method="post">
-                    <label for="name">Nom</label>
-                    <input type="text" name="newsletters" class="input">
-                    <label for="forname">Prénom</label>
-                    <input type="text" name="newsletters" class="input">
-                    <label for="mail">Adresse mail</label>
-                    <input type="email" name="newsletters" class="input">
-                    <label for="message">Votre message</label>
-                    <textarea name="message" id="message"></textarea>
-                    <button type="submit" id="mainBtn">
-                        <a href="#contact">Envoyer</a>
-                    </button>              
-                </form>
+                {% for message in app.flashes('success') %}
+                    <div class="alert alert-success">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+
+                {% for message in app.flashes('error') %}
+                    <div class="alert alert-danger">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+
+                {{ form_start(form) }}
+                    {{ form_label(form.name, 'Nom') }}
+                    {{ form_widget(form.name, {'attr': {'class': 'input'}}) }}
+                    {{ form_label(form.forname, 'Prénom') }}
+                    {{ form_widget(form.forname, {'attr': {'class': 'input'}}) }}
+                    {{ form_label(form.email, 'Adresse mail') }}
+                    {{ form_widget(form.email, {'attr': {'class': 'input'}}) }}
+                    {{ form_label(form.message, 'Votre message') }}
+                    {{ form_widget(form.message, {'attr': {'class': 'input'}}) }}
+                    <button type="submit" id="mainBtn" class="submit-btn">Envoyer</button>
+                {{ form_end(form) }}
             </div>
         </section>
     </div>
