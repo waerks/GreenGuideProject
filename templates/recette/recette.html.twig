@@ -40,7 +40,7 @@
                             <p>{{recette.user.pseudo}}</p>
                             </div>
                         <div class="divRight">
-                            <p>52</p>
+                            <p>{{ recette.getLikeCount() }}</p>
                             <span><img src="{{ asset('/build/images/icons/coeur.png')}}" alt="Like"></span>
                         </div>
                     </div>

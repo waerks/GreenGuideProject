@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\RecetteRepository;
@@ -45,6 +47,17 @@ class Recette
 
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
+
+    /**
+     * @var Collection<int, Like>
+     */
+    #[ORM\OneToMany(targetEntity: Like::class, mappedBy: 'recette')]
+    private Collection $likes;
+
+    public function __construct()
+    {
+        $this->likes = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -174,5 +187,43 @@ class Recette
     public function generateSlug(SluggerInterface $slugger): void
     {
         $this->slug = $slugger->slug($this->nom)->lower();
+    }
+
+    /**
+     * @return Collection<int, Like>
+     */
+    public function getLikes(): Collection
+    {
+        return $this->likes;
+    }
+
+    public function addLike(Like $like): static
+    {
+        if (!$this->likes->contains($like)) {
+            $this->likes->add($like);
+            $like->setRecette($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLike(Like $like): static
+    {
+        if ($this->likes->removeElement($like)) {
+            // set the owning side to null (unless already changed)
+            if ($like->getRecette() === $this) {
+                $like->setRecette(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getLikeCount(): int
+    {
+        return $this->likes->count(); // Cette méthode compte le nombre de likes
     }
 }

@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20241018095838 extends AbstractMigration
+final class Version20241106135031 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -26,6 +26,7 @@ final class Version20241018095838 extends AbstractMigration
         $this->addSql('CREATE TABLE element_ennemi (element_source INT NOT NULL, element_target INT NOT NULL, INDEX IDX_3736BA1FD69D76E7 (element_source), INDEX IDX_3736BA1FCF782668 (element_target), PRIMARY KEY(element_source, element_target)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE element_type_element (element_id INT NOT NULL, type_element_id INT NOT NULL, INDEX IDX_C1AC48C11F1F2A24 (element_id), INDEX IDX_C1AC48C121CFC01 (type_element_id), PRIMARY KEY(element_id, type_element_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE etape (id INT AUTO_INCREMENT NOT NULL, element_id INT NOT NULL, type_etape_id INT NOT NULL, mois LONGTEXT NOT NULL COMMENT \'(DC2Type:array)\', periode VARCHAR(255) NOT NULL, instructions LONGTEXT NOT NULL, INDEX IDX_285F75DD1F1F2A24 (element_id), INDEX IDX_285F75DD87738551 (type_etape_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE `like` (id INT AUTO_INCREMENT NOT NULL, recette_id INT DEFAULT NULL, user_id INT DEFAULT NULL, INDEX IDX_AC6340B389312FE9 (recette_id), INDEX IDX_AC6340B3A76ED395 (user_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE question (id INT AUTO_INCREMENT NOT NULL, user_id INT NOT NULL, titre VARCHAR(255) NOT NULL, contenu LONGTEXT NOT NULL, image VARCHAR(255) DEFAULT NULL, slug VARCHAR(255) NOT NULL, date_publication DATETIME NOT NULL, INDEX IDX_B6F7494EA76ED395 (user_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE recette (id INT AUTO_INCREMENT NOT NULL, user_id INT NOT NULL, nom VARCHAR(255) NOT NULL, image VARCHAR(255) NOT NULL, conseil LONGTEXT DEFAULT NULL, nombre_de_personne INT NOT NULL, ingredients LONGTEXT NOT NULL COMMENT \'(DC2Type:array)\', temps_de_preparation INT NOT NULL, temps_de_cuisson INT NOT NULL, etapes LONGTEXT NOT NULL COMMENT \'(DC2Type:array)\', slug VARCHAR(255) NOT NULL, INDEX IDX_49BB6390A76ED395 (user_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE type_element (id INT AUTO_INCREMENT NOT NULL, nom VARCHAR(100) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
@@ -44,6 +45,8 @@ final class Version20241018095838 extends AbstractMigration
         $this->addSql('ALTER TABLE element_type_element ADD CONSTRAINT FK_C1AC48C121CFC01 FOREIGN KEY (type_element_id) REFERENCES type_element (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE etape ADD CONSTRAINT FK_285F75DD1F1F2A24 FOREIGN KEY (element_id) REFERENCES element (id)');
         $this->addSql('ALTER TABLE etape ADD CONSTRAINT FK_285F75DD87738551 FOREIGN KEY (type_etape_id) REFERENCES type_etape (id)');
+        $this->addSql('ALTER TABLE `like` ADD CONSTRAINT FK_AC6340B389312FE9 FOREIGN KEY (recette_id) REFERENCES recette (id)');
+        $this->addSql('ALTER TABLE `like` ADD CONSTRAINT FK_AC6340B3A76ED395 FOREIGN KEY (user_id) REFERENCES user (id)');
         $this->addSql('ALTER TABLE question ADD CONSTRAINT FK_B6F7494EA76ED395 FOREIGN KEY (user_id) REFERENCES user (id)');
         $this->addSql('ALTER TABLE recette ADD CONSTRAINT FK_49BB6390A76ED395 FOREIGN KEY (user_id) REFERENCES user (id)');
     }
@@ -63,6 +66,8 @@ final class Version20241018095838 extends AbstractMigration
         $this->addSql('ALTER TABLE element_type_element DROP FOREIGN KEY FK_C1AC48C121CFC01');
         $this->addSql('ALTER TABLE etape DROP FOREIGN KEY FK_285F75DD1F1F2A24');
         $this->addSql('ALTER TABLE etape DROP FOREIGN KEY FK_285F75DD87738551');
+        $this->addSql('ALTER TABLE `like` DROP FOREIGN KEY FK_AC6340B389312FE9');
+        $this->addSql('ALTER TABLE `like` DROP FOREIGN KEY FK_AC6340B3A76ED395');
         $this->addSql('ALTER TABLE question DROP FOREIGN KEY FK_B6F7494EA76ED395');
         $this->addSql('ALTER TABLE recette DROP FOREIGN KEY FK_49BB6390A76ED395');
         $this->addSql('DROP TABLE commentaire');
@@ -71,6 +76,7 @@ final class Version20241018095838 extends AbstractMigration
         $this->addSql('DROP TABLE element_ennemi');
         $this->addSql('DROP TABLE element_type_element');
         $this->addSql('DROP TABLE etape');
+        $this->addSql('DROP TABLE `like`');
         $this->addSql('DROP TABLE question');
         $this->addSql('DROP TABLE recette');
         $this->addSql('DROP TABLE type_element');

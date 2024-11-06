@@ -1,17 +1,18 @@
 {% include "header/header.html.twig" %}
 
-
 <section>
     <div class="container">
         <section id="recetteDImg">
             <span>
-                <img src="{{ asset('/uploads/photosRecette/' ~ recette.image)}}" alt="">
+                <img src="{{ asset('/uploads/photosRecette/' ~ recette.image)}}" alt="{{recette.nom}}">
             </span>
             <div class="divPost">
                 <p>Posté par <span>{{recette.user.pseudo}}</span></p>
                 <div class="divLike">
-                    <p>52</p>
-                    <button id="like" type="submit"><img src="{{ asset('/build/images/icons/coeur vide.png')}}" alt=""></button>
+                    <p id="likeCount">{{ recette.getLikeCount() }}</p>
+                    <button id="like" type="button" data-recipe-id="{{ recette.id }}" data-liked="{{ isLiked ? 'true' : 'false' }}">
+                        <img id="likeIcon" src="{{ asset('/build/images/icons/' ~ (isLiked ? 'coeur.png' : 'coeur vide.png')) }}" alt="Like">
+                    </button>
                 </div>
             </div>
         </section>
@@ -68,5 +69,44 @@
     </div>
 </section>
 
+{% block javascripts %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const likeButton = document.getElementById('like');
+            const likeCount = document.getElementById('likeCount');
+            const likeIcon = document.getElementById('likeIcon');
+            const recipeId = likeButton.getAttribute('data-recipe-id');
+            let isLiked = likeButton.getAttribute('data-liked') === 'true';
+
+            // Mettre à jour l'icône selon si le like est actif ou non
+            likeIcon.src = isLiked ? '{{ asset('/build/images/icons/coeur.png') }}' : '{{ asset('/build/images/icons/coeur vide.png') }}';
+
+            likeButton.addEventListener('click', function (event) {
+                event.preventDefault();  // Empêche la soumission du formulaire
+
+                fetch('/recette/' + recipeId + '/like', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(data.error); // Afficher une erreur si l'utilisateur n'est pas connecté
+                    } else {
+                        likeCount.textContent = data.likeCount; // Mettre à jour le nombre de likes
+                        isLiked = data.isLiked;
+                        likeIcon.src = isLiked ? '{{ asset('/build/images/icons/coeur.png') }}' : '{{ asset('/build/images/icons/coeur vide.png') }}';
+                    }
+                })
+                .catch(error => {
+                    console.error('Erreur lors du clic sur like:', error);
+                });
+            });
+        });
+    </script>
+{% endblock %}
 
 {% include "footer/footer.html.twig" %}
