@@ -12,4 +12,4 @@ symfony console make:migration --no-interaction
 @REM Applique les migrations
 symfony console doctrine:migrations:migrate --no-interaction
 @REM Supprime et recrée les données dans la DB
-@REM symfony console doctrine:fixtures:load --no-interaction
+symfony console doctrine:fixtures:load --no-interaction
