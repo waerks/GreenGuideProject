@@ -1,0 +1,662 @@
+{
+    "0": {
+        "id": 0,
+        "nom": "Artichaut",
+        "nomscientifique": "Cynara scolymus",
+        "famille": "Astéracées",
+        "hauteur": "1 à 1,5 mètre",
+        "sol": "Riche, profond, bien drainé",
+        "categorie": "legume",
+        "image": "artichaut.jpg",
+        "resume": "L'artichaut est une plante vivace cultivée pour ses capitules comestibles. Sa culture nécessite un sol riche et bien drainé.",
+        "semis": {
+            "mois": [
+                "mars", "avril"
+            ],
+            "periode": "Début du printemps",
+            "instruction": "Semer les graines en terrine ou en godets, puis repiquer en pleine terre."
+        },
+        "plantation": {
+            "mois": [
+                "mai", "juin"
+            ],
+            "periode": "Fin du printemps",
+            "instruction": "Planter en pleine terre en espaçant les plants de 80 cm."
+        },
+        "recolte": {
+            "mois": [
+                "mai", "juin", "juillet"
+            ],
+            "periode": "Début de l'été",
+            "instruction": "Récolter les capitules lorsque les écailles sont bien serrées."
+        },
+        "entretien": "Pailler en hiver et arroser régulièrement en période sèche.",
+        "rotationdescultures": "Ne pas replanter au même endroit avant 3-4 ans.",
+        "plantesamies": [
+            "Laitue", "Pois", "Haricot"
+        ],
+        "plantesenemies": [
+            "Ail", "Oignon"
+        ],
+        "conservation": "Conserver les artichauts au frais et consommer rapidement après récolte.",
+        "benefices": "Riche en fibres et en antioxydants, favorise la digestion.",
+        "contreindication": "À consommer avec modération en cas d'obstruction biliaire.",
+        "informationsnutritionnelles": "Source de vitamine C, K, et de magnésium, apporte 47 kcal pour 100g."
+    },
+    "1": {
+        "id": 1,
+        "nom": "Asperge",
+        "nomscientifique": "Asparagus officinalis",
+        "famille": "Asparagacées",
+        "hauteur": "1 à 1,5 mètre",
+        "sol": "Léger, sableux, bien drainé",
+        "categorie": "legume",
+        "image": "asperge.jpg",
+        "resume": "L'asperge est une plante vivace cultivée pour ses jeunes pousses comestibles, appréciée au printemps.",
+        "semis": {
+            "mois": [
+                "mars", "avril", "mai"
+            ],
+            "periode": "Début du printemps",
+            "instruction": "Semer les graines en terrine puis repiquer en pleine terre au printemps suivant."
+        },
+        "plantation": {
+            "mois": [
+                "mars", "avril"
+            ],
+            "periode": "Début du printemps",
+            "instruction": "Planter en lignes espacées en veillant à bien préparer le sol."
+        },
+        "recolte": {
+            "mois": [
+                "avril", "mai", "juin"
+            ],
+            "periode": "Printemps",
+            "instruction": "Récolter les pousses lorsqu'elles atteignent 20 cm de hauteur."
+        },
+        "entretien": "Désherber régulièrement et pailler pour conserver l'humidité. Éliminer les tiges mortes en hiver.",
+        "rotationdescultures": "Une fois plantée, elle peut rester en place de 8 à 10 ans.",
+        "plantesamies": [
+            "Carotte", "Persil", "Tomate"
+        ],
+        "plantesenemies": [
+            "Ail", "Oignon", "Poireau"
+        ],
+        "conservation": "À consommer frais ou à conserver quelques jours au frais. Peut être congelée après blanchiment.",
+        "benefices": "Riche en fibres, vitamines C, K, et acide folique, faible en calories.",
+        "contreindication": "Peut provoquer des troubles urinaires en cas de consommation excessive.",
+        "informationsnutritionnelles": "Source de vitamine K et de folates, apporte environ 20 kcal pour 100g."
+    },
+    "2": {
+        "id": 2,
+        "nom": "Aubergine",
+        "nomscientifique": "Solanum melongena",
+        "famille": "Solanacées",
+        "hauteur": "50 cm à 1 mètre",
+        "sol": "Riche, léger, bien drainé, légèrement acide",
+        "categorie": "legume",
+        "image": "aubergine.jpg",
+        "resume": "L'aubergine est une plante annuelle cultivée pour ses fruits comestibles, qui peuvent être consommés de diverses manières, souvent grillés, sautés ou en ratatouille.",
+        "semis": {
+            "mois": [
+                "février", "mars"
+            ],
+            "periode": "Fin de l'hiver à début du printemps",
+            "instruction": "Semer sous abri, puis repiquer en pleine terre lorsque le risque de gel est passé."
+        },
+        "plantation": {
+            "mois": [
+                "mai", "juin"
+            ],
+            "periode": "Printemps",
+            "instruction": "Planter en pleine terre lorsque le sol est bien réchauffé, en laissant un espace de 60 cm entre chaque plant."
+        },
+        "recolte": {
+            "mois": [
+                "juillet", "août", "septembre"
+            ],
+            "periode": "Été",
+            "instruction": "Récolter les fruits lorsqu'ils sont bien fermes et brillants, avant qu'ils ne mûrissent trop."
+        },
+        "entretien": "Arroser régulièrement en période de sécheresse et pailler pour maintenir l'humidité. Supprimer les tiges mortes et limiter l'exposition directe au vent.",
+        "rotationdescultures": "Ne pas cultiver d'aubergines au même endroit pendant 3 ans pour éviter les maladies du sol.",
+        "plantesamies": [
+            "Basilic", "Poivron", "Haricot"
+        ],
+        "plantesenemies": [
+            "Pomme de terre", "Tomate"
+        ],
+        "conservation": "À conserver dans un endroit frais et sec, consommer rapidement pour éviter le ramollissement.",
+        "benefices": "Riche en antioxydants et en fibres, l'aubergine contribue à la santé cardiovasculaire.",
+        "contreindication": "Les aubergines peuvent provoquer des réactions allergiques chez certaines personnes sensibles aux Solanacées.",
+        "informationsnutritionnelles": "Faible en calories (environ 25 kcal pour 100g), riche en fibres et en antioxydants, notamment la nasunin, un anthocyanine."
+    },
+    "3": {
+        "id": 3,
+        "nom": "Betterave",
+        "nomscientifique": "Beta vulgaris",
+        "famille": "Chénopodiacées",
+        "hauteur": "30 à 40 cm",
+        "sol": "Légèrement acide, riche, profond, bien drainé",
+        "categorie": "legume",
+        "image": "betterave.jpg",
+        "resume": "La betterave est une racine comestible, souvent utilisée en salade, en soupe ou en jus. Elle est réputée pour sa couleur rouge vif et ses nombreux bienfaits pour la santé.",
+        "semis": {
+            "mois": [
+                "mars", "avril"
+            ],
+            "periode": "Printemps",
+            "instruction": "Semer directement en pleine terre, à une profondeur de 2 à 3 cm, en espaçant les graines de 10 cm."
+        },
+        "plantation": {
+            "mois": [
+                "avril", "mai"
+            ],
+            "periode": "Printemps",
+            "instruction": "Repiquer les jeunes plants en pleine terre, espacés de 20 cm entre chaque plant."
+        },
+        "recolte": {
+            "mois": [
+                "juin", "juillet", "août"
+            ],
+            "periode": "Été",
+            "instruction": "Récolter les racines lorsqu'elles atteignent environ 5 à 10 cm de diamètre. Plus elles sont grosses, plus elles sont coriaces."
+        },
+        "entretien": "Arroser régulièrement et désherber autour des plants. Pailler pour garder l'humidité et protéger les racines.",
+        "rotationdescultures": "Planter la betterave dans un sol qui n'a pas accueilli de betterave, de carotte ou de pois pendant les 3 dernières années.",
+        "plantesamies": [
+            "Oignon", "Chou", "Salade"
+        ],
+        "plantesenemies": [
+            "Betterave", "Poivron"
+        ],
+        "conservation": "Les betteraves peuvent être conservées dans un endroit frais et sombre, ou en les congelant après les avoir cuites.",
+        "benefices": "Riche en antioxydants, en fibres et en vitamine C, la betterave soutient la santé cardiovasculaire et améliore l'endurance.",
+        "contreindication": "Peut provoquer une coloration rouge des urines, sans risque pour la santé, mais peut effrayer certaines personnes.",
+        "informationsnutritionnelles": "Environ 43 kcal pour 100g, riche en vitamine C, B9, et en minéraux comme le potassium et le fer."
+    },
+    "4": {
+        "id": 4,
+        "nom": "Brocoli",
+        "nomscientifique": "Brassica oleracea var. italica",
+        "famille": "Brassicacées",
+        "hauteur": "40 à 80 cm",
+        "sol": "Riche, frais, bien drainé, légèrement acide",
+        "categorie": "legume",
+        "image": "brocoli.jpg",
+        "resume": "Le brocoli est un légume de la famille des crucifères, apprécié pour ses têtes fleuries comestibles. Il est riche en vitamines et minéraux, notamment en vitamine C.",
+        "semis": {
+            "mois": [
+                "mars", "avril"
+            ],
+            "periode": "Printemps",
+            "instruction": "Semer en intérieur ou sous abri, puis repiquer en pleine terre lorsqu'il n'y a plus de risques de gel."
+        },
+        "plantation": {
+            "mois": [
+                "avril", "mai"
+            ],
+            "periode": "Printemps",
+            "instruction": "Planter en pleine terre en espaçant les plants de 30 à 40 cm."
+        },
+        "recolte": {
+            "mois": [
+                "juin", "juillet", "août"
+            ],
+            "periode": "Été",
+            "instruction": "Récolter les têtes lorsque les fleurs commencent à se former, avant qu'elles ne s'ouvrent."
+        },
+        "entretien": "Arroser régulièrement, surtout en période sèche. Pailler pour garder l'humidité et éviter la croissance des mauvaises herbes.",
+        "rotationdescultures": "Éviter de planter le brocoli au même endroit pendant au moins 3 ans pour prévenir les maladies du sol.",
+        "plantesamies": [
+            "Chou-fleur", "Poireau", "Céleri"
+        ],
+        "plantesenemies": [
+            "Tomate", "Fève"
+        ],
+        "conservation": "Le brocoli peut être conservé quelques jours au réfrigérateur ou congelé après blanchiment.",
+        "benefices": "Riche en vitamines C, K et B9, le brocoli est un excellent antioxydant et contribue à la santé cardiovasculaire.",
+        "contreindication": "Les personnes sous traitement anticoagulant doivent consommer le brocoli avec modération en raison de sa teneur en vitamine K.",
+        "informationsnutritionnelles": "Environ 34 kcal pour 100g, riche en fibres et en minéraux comme le calcium et le potassium."
+    },
+    "5": {
+        "id": 5,
+        "nom": "Carotte",
+        "nomscientifique": "Daucus carota",
+        "famille": "Apiacées",
+        "hauteur": "20 à 30 cm",
+        "sol": "Légèrement acide, meuble, léger, bien drainé",
+        "categorie": "legume",
+        "image": "carotte.jpg",
+        "resume": "La carotte est une racine comestible très populaire, riche en bêta-carotène, un antioxydant qui contribue à la santé de la peau et des yeux.",
+        "semis": {
+            "mois": [
+                "mars", "avril"
+            ],
+            "periode": "Printemps",
+            "instruction": "Semer directement en pleine terre à 1 cm de profondeur, en espaçant les graines de 2 à 3 cm."
+        },
+        "plantation": {
+            "mois": [
+                "avril", "mai"
+            ],
+            "periode": "Printemps",
+            "instruction": "Repiquer les jeunes plants lorsque les racines commencent à se former, en espaçant chaque plant de 5 à 7 cm."
+        },
+        "recolte": {
+            "mois": [
+                "juin", "juillet", "août", "septembre"
+            ],
+            "periode": "Été à automne",
+            "instruction": "Récolter lorsque les racines atteignent une taille convenable, en fonction de la variété."
+        },
+        "entretien": "Arroser régulièrement, surtout pendant les périodes sèches. Désherber fréquemment et pailler pour conserver l'humidité.",
+        "rotationdescultures": "Ne pas replanter la carotte au même endroit avant 2 ou 3 ans pour éviter l'appauvrissement du sol et les maladies.",
+        "plantesamies": [
+            "Poireau", "Oignon", "Romarin"
+        ],
+        "plantesenemies": [
+            "Anis", "Carotte", "Fenouil"
+        ],
+        "conservation": "Les carottes peuvent être stockées dans un endroit frais et sombre, ou être conservées au réfrigérateur pour plusieurs semaines.",
+        "benefices": "Riche en bêta-carotène, en vitamine A et en fibres, la carotte est bénéfique pour la vision, la peau et le système digestif.",
+        "contreindication": "Aucune contre-indication majeure, mais les personnes ayant des problèmes de digestion peuvent réduire leur consommation crue.",
+        "informationsnutritionnelles": "Environ 41 kcal pour 100g, riche en vitamine A et en fibres alimentaires."
+    },
+    "6": {
+        "id": 6,
+        "nom": "Céleri",
+        "nomscientifique": "Apium graveolens",
+        "famille": "Apiacées",
+        "hauteur": "50 cm à 1 mètre",
+        "sol": "Riche, profond, humide, bien drainé",
+        "categorie": "legume",
+        "image": "celeri.jpg",
+        "resume": "Le céleri est une plante herbacée cultivée pour ses tiges, ses feuilles et ses racines comestibles. Il est riche en vitamines et minéraux, et souvent utilisé en soupes, salades ou jus.",
+        "semis": {
+            "mois": [
+                "mars", "avril"
+            ],
+            "periode": "Printemps",
+            "instruction": "Semer sous abri ou en terrine, puis repiquer en pleine terre après les dernières gelées."
+        },
+        "plantation": {
+            "mois": [
+                "mai", "juin"
+            ],
+            "periode": "Printemps à début d'été",
+            "instruction": "Planter en pleine terre en espaçant les plants de 30 cm et en s'assurant que le sol est bien préparé et humide."
+        },
+        "recolte": {
+            "mois": [
+                "juillet", "août", "septembre"
+            ],
+            "periode": "Été à automne",
+            "instruction": "Récolter les tiges lorsqu'elles sont bien développées, en coupant les tiges les plus extérieures."
+        },
+        "entretien": "Arroser régulièrement pour maintenir une bonne humidité, surtout pendant les périodes sèches. Pailler pour conserver l'humidité du sol.",
+        "rotationdescultures": "Éviter de planter du céleri au même endroit pendant 2 à 3 ans pour prévenir les maladies du sol.",
+        "plantesamies": [
+            "Tomate", "Poivron", "Oignon"
+        ],
+        "plantesenemies": [
+            "Carotte", "Fenouil", "Chou"
+        ],
+        "conservation": "Le céleri se conserve bien dans un endroit frais, et les tiges peuvent être stockées au réfrigérateur pour plusieurs semaines.",
+        "benefices": "Riche en vitamines A, C et K, ainsi qu'en minéraux comme le potassium, il aide à la digestion et soutient la santé cardiovasculaire.",
+        "contreindication": "Les personnes ayant une peau sensible au soleil devraient éviter d'être exposées au soleil après avoir consommé du céleri, en raison de la présence de substances photosensibilisantes.",
+        "informationsnutritionnelles": "Environ 16 kcal pour 100g, riche en fibres alimentaires et en antioxydants."
+    },
+    "7": {
+        "id": 7,
+        "nom": "Chou-fleur",
+        "nomscientifique": "Brassica oleracea var. botrytis",
+        "famille": "Brassicacées",
+        "hauteur": "40 à 50 cm",
+        "sol": "Riche, frais, légèrement acide, bien drainé",
+        "categorie": "legume",
+        "image": "chou-fleur.jpg",
+        "resume": "Le chou-fleur est un légume crucifère dont la partie comestible est la inflorescence compacte. Il est riche en vitamines C, K et B9, et est couramment utilisé dans des plats cuits ou en gratins.",
+        "semis": {
+            "mois": [
+                "mars", "avril"
+            ],
+            "periode": "Printemps",
+            "instruction": "Semer en intérieur ou sous abri, puis repiquer en pleine terre une fois que les risques de gel sont passés."
+        },
+        "plantation": {
+            "mois": [
+                "mai", "juin"
+            ],
+            "periode": "Printemps à début d'été",
+            "instruction": "Planter en pleine terre lorsque les plants sont suffisamment forts, en espaçant les plants de 40 cm pour laisser de la place aux têtes."
+        },
+        "recolte": {
+            "mois": [
+                "juillet", "août", "septembre"
+            ],
+            "periode": "Été à automne",
+            "instruction": "Récolter lorsque les têtes sont compactes et bien développées, avant que les fleurs ne commencent à s'ouvrir."
+        },
+        "entretien": "Arroser régulièrement pour maintenir le sol frais et humide. Pailler autour des plants pour conserver l'humidité et éviter les mauvaises herbes.",
+        "rotationdescultures": "Éviter de planter du chou-fleur au même endroit pendant 3 ans pour réduire les risques de maladies du sol.",
+        "plantesamies": [
+            "Céleri", "Poireau", "Persil"
+        ],
+        "plantesenemies": [
+            "Tomate", "Poivron", "Fève"
+        ],
+        "conservation": "Le chou-fleur peut être conservé au réfrigérateur pendant une semaine. Il peut également être congelé après blanchiment.",
+        "benefices": "Riche en vitamines et minéraux, le chou-fleur est un excellent antioxydant et soutient la santé immunitaire et digestive.",
+        "contreindication": "Aucune contre-indication majeure, mais une consommation excessive peut entraîner des gaz et des ballonnements chez les personnes sensibles.",
+        "informationsnutritionnelles": "Environ 25 kcal pour 100g, riche en vitamine C, K et folates, et une excellente source de fibres."
+    },
+    "8": {
+        "id": 8,
+        "nom": "Concombre",
+        "nomscientifique": "Cucumis sativus",
+        "famille": "Cucurbitacées",
+        "hauteur": "1 à 3 mètres",
+        "sol": "Fertile, léger, bien drainé, légèrement acide",
+        "categorie": "legume",
+        "image": "concombre.jpg",
+        "resume": "Le concombre est un légume-fruit rafraîchissant, principalement composé d'eau. Il est couramment consommé cru, en salades, ou dans des boissons. Il est apprécié pour sa légèreté et ses propriétés hydratantes.",
+        "semis": {
+            "mois": [
+                "avril", "mai"
+            ],
+            "periode": "Printemps",
+            "instruction": "Semer en godets ou en pleine terre lorsque le sol est bien réchauffé et qu'il n'y a plus de risque de gel."
+        },
+        "plantation": {
+            "mois": [
+                "mai", "juin"
+            ],
+            "periode": "Printemps",
+            "instruction": "Planter en pleine terre ou en serre en espaçant les plants de 50 à 60 cm pour permettre un bon développement des racines et des tiges."
+        },
+        "recolte": {
+            "mois": [
+                "juin", "juillet", "août"
+            ],
+            "periode": "Été",
+            "instruction": "Récolter les concombres lorsqu'ils sont fermes, encore jeunes et tendres, avant qu'ils ne deviennent trop gros et amers."
+        },
+        "entretien": "Arroser abondamment, surtout pendant les périodes sèches. Pincer les tiges pour favoriser la ramification et les rendements. Pailler pour garder l'humidité.",
+        "rotationdescultures": "Ne pas planter le concombre au même endroit que des cucurbitacées (melon, courge) pour éviter les maladies du sol.",
+        "plantesamies": [
+            "Maïs", "Haricot"
+        ],
+        "plantesenemies": [
+            "Pommes de terre", "Cabbage", "Carotte"
+        ],
+        "conservation": "Les concombres doivent être consommés rapidement après la récolte, mais peuvent être conservés dans un endroit frais ou au réfrigérateur pendant quelques jours.",
+        "benefices": "Le concombre est riche en eau, ce qui aide à l'hydratation, tout en apportant peu de calories. Il est également source de vitamines K et C, et d'antioxydants.",
+        "contreindication": "Aucune contre-indication majeure, mais les personnes sensibles peuvent ressentir des ballonnements en consommant des concombres crus.",
+        "informationsnutritionnelles": "Environ 16 kcal pour 100g, principalement constitué d'eau, avec des quantités modérées de vitamines C, K, et de potassium."
+    },
+    "9": {
+        "id": 9,
+        "nom": "Courgette",
+        "nomscientifique": "Cucurbita pepo",
+        "famille": "Cucurbitacées",
+        "hauteur": "50 à 70 cm",
+        "sol": "Fertile, léger, bien drainé, légèrement acide",
+        "categorie": "legume",
+        "image": "courgette.jpg",
+        "resume": "La courgette est un légume de la famille des cucurbitacées, apprécié pour sa chair tendre et légère. Elle peut être cuisinée de diverses façons, en gratins, sautée, ou en soupe.",
+        "semis": {
+            "mois": [
+                "avril", "mai"
+            ],
+            "periode": "Printemps",
+            "instruction": "Semer en godets ou en pleine terre lorsque les températures nocturnes dépassent les 10°C."
+        },
+        "plantation": {
+            "mois": [
+                "mai", "juin"
+            ],
+            "periode": "Printemps",
+            "instruction": "Planter en pleine terre après les dernières gelées en espaçant les plants de 50 à 70 cm pour permettre une bonne aération."
+        },
+        "recolte": {
+            "mois": [
+                "juin", "juillet", "août", "septembre"
+            ],
+            "periode": "Été",
+            "instruction": "Récolter les courgettes lorsqu'elles sont jeunes et encore tendres, avant qu'elles ne deviennent trop grosses et fibreuses."
+        },
+        "entretien": "Arroser régulièrement et de préférence au pied, en évitant les feuilles. Pailler pour conserver l'humidité du sol et réduire l'évaporation.",
+        "rotationdescultures": "Ne pas planter les courgettes au même endroit que d'autres cucurbitacées pour éviter les maladies du sol.",
+        "plantesamies": [
+            "Haricot", "Maïs", "Blette"
+        ],
+        "plantesenemies": [
+            "Pommes de terre", "Carottes", "Chou"
+        ],
+        "conservation": "Les courgettes se conservent quelques jours au réfrigérateur, mais peuvent également être congelées après blanchiment.",
+        "benefices": "Riche en eau, faible en calories et une bonne source de vitamines A, C, et de potassium, la courgette est bénéfique pour l'hydratation et la santé cardiovasculaire.",
+        "contreindication": "Aucune contre-indication majeure, mais les courgettes peuvent être difficiles à digérer pour les personnes sensibles aux fibres.",
+        "informationsnutritionnelles": "Environ 17 kcal pour 100g, principalement composée d'eau, avec des vitamines C et A, ainsi que des minéraux comme le potassium et le magnésium."
+    },
+    "10": {
+        "id": 10,
+        "nom": "Épinard",
+        "nomscientifique": "Spinacia oleracea",
+        "famille": "Amaranthacées",
+        "hauteur": "30 à 40 cm",
+        "sol": "Fertile, frais, bien drainé, légèrement acide",
+        "categorie": "legume",
+        "image": "epinard.jpg",
+        "resume": "L'épinard est une plante potagère à feuilles vertes, riche en vitamines A, C, K et en fer. Il est souvent consommé frais en salade ou cuit dans des plats comme des soupes ou des gratins.",
+        "semis": {
+            "mois": [
+                "mars", "avril"
+            ],
+            "periode": "Printemps",
+            "instruction": "Semer directement en pleine terre, à 1 cm de profondeur, en espaçant les graines de 2 à 3 cm."
+        },
+        "plantation": {
+            "mois": [
+                "avril", "mai"
+            ],
+            "periode": "Printemps",
+            "instruction": "Planter les jeunes plants en pleine terre lorsque le sol est réchauffé, en espaçant chaque plant de 20 à 30 cm."
+        },
+        "recolte": {
+            "mois": [
+                "mai", "juin", "juillet", "août"
+            ],
+            "periode": "Printemps à été",
+            "instruction": "Récolter les feuilles lorsque les jeunes pousses sont tendres, avant qu'elles ne deviennent trop grandes et fibreuses."
+        },
+        "entretien": "Arroser régulièrement pour maintenir une humidité constante et éviter que les feuilles ne deviennent amères. Désherber fréquemment et pailler pour conserver l'humidité.",
+        "rotationdescultures": "Éviter de planter des épinards au même endroit pendant deux ou trois ans pour prévenir les maladies du sol.",
+        "plantesamies": [
+            "Fraise", "Oignon", "Radis"
+        ],
+        "plantesenemies": [
+            "Betterave", "Chou", "Haricot"
+        ],
+        "conservation": "Les épinards se conservent quelques jours au réfrigérateur, mais peuvent également être congelés après blanchiment.",
+        "benefices": "Riche en fer, en vitamine A et en antioxydants, l'épinard aide à maintenir une bonne santé cardiovasculaire et à renforcer les défenses immunitaires.",
+        "contreindication": "Les personnes souffrant de calculs rénaux doivent consommer les épinards avec modération en raison de leur teneur en oxalates.",
+        "informationsnutritionnelles": "Environ 23 kcal pour 100g, avec une forte teneur en vitamines A, C, K, et en minéraux comme le fer et le magnésium."
+    },
+    "11": {
+        "id": 11,
+        "nom": "Haricot vert",
+        "nomscientifique": "Phaseolus vulgaris",
+        "famille": "Fabacées",
+        "hauteur": "30 à 50 cm",
+        "sol": "Fertile, léger, bien drainé, légèrement acide",
+        "categorie": "legume",
+        "image": "haricot_vert.jpg",
+        "resume": "Le haricot vert est une légumineuse cultivée pour ses gousses comestibles. Il est riche en fibres, vitamines et minéraux, et est largement consommé cuit dans des plats variés, en accompagnement ou en salade.",
+        "semis": {
+            "mois": [
+                "avril", "mai"
+            ],
+            "periode": "Printemps",
+            "instruction": "Semer en pleine terre, à 2 à 3 cm de profondeur, en espaçant les graines de 5 à 10 cm."
+        },
+        "plantation": {
+            "mois": [
+                "mai", "juin"
+            ],
+            "periode": "Printemps",
+            "instruction": "Planter en pleine terre lorsque les températures sont suffisamment élevées, à partir de 15°C, en espaçant les rangs de 40 à 50 cm."
+        },
+        "recolte": {
+            "mois": [
+                "juillet", "août", "septembre"
+            ],
+            "periode": "Été",
+            "instruction": "Récolter les haricots verts lorsque les gousses sont tendres et encore jeunes, avant qu'elles ne deviennent trop épaisses et fibreuses."
+        },
+        "entretien": "Arroser régulièrement et pailler pour conserver l'humidité. Veiller à désherber fréquemment et éviter l'accumulation d'eau autour des racines.",
+        "rotationdescultures": "Ne pas planter des haricots verts au même endroit que d'autres légumineuses pour éviter les maladies liées aux racines.",
+        "plantesamies": [
+            "Maïs", "Tomate", "Carotte"
+        ],
+        "plantesenemies": [
+            "Oignon", "Ail", "Poireau"
+        ],
+        "conservation": "Les haricots verts se conservent quelques jours au réfrigérateur, mais peuvent également être congelés après blanchiment.",
+        "benefices": "Riche en fibres, vitamines C, K et A, ainsi qu'en minéraux comme le potassium, le haricot vert est bénéfique pour la santé digestive et cardiovasculaire.",
+        "contreindication": "Aucune contre-indication majeure, mais les haricots verts doivent être consommés cuits, car les graines crues contiennent des substances toxiques (lectines).",
+        "informationsnutritionnelles": "Environ 31 kcal pour 100g, avec une bonne teneur en vitamines C, K et en minéraux comme le potassium et le magnésium."
+    },
+    "12": {
+        "id": 12,
+        "nom": "Laitue",
+        "nomscientifique": "Lactuca sativa",
+        "famille": "Astéracées",
+        "hauteur": "20 à 30 cm",
+        "sol": "Fertile, frais, bien drainé, légèrement acide",
+        "categorie": "legume",
+        "image": "laitue.jpg",
+        "resume": "La laitue est une plante à feuilles comestibles, cultivée pour ses feuilles tendres et croquantes. Elle est largement utilisée dans les salades et comme garniture dans de nombreux plats.",
+        "semis": {
+            "mois": [
+                "mars", "avril"
+            ],
+            "periode": "Printemps",
+            "instruction": "Semer en godets ou en pleine terre, en espaçant les graines de 2 à 3 cm, à une profondeur de 0,5 cm."
+        },
+        "plantation": {
+            "mois": [
+                "avril", "mai"
+            ],
+            "periode": "Printemps",
+            "instruction": "Planter en pleine terre lorsque le sol est réchauffé, en espaçant les plants de 20 à 25 cm pour permettre un bon développement."
+        },
+        "recolte": {
+            "mois": [
+                "mai", "juin", "juillet", "août"
+            ],
+            "periode": "Printemps à été",
+            "instruction": "Récolter les feuilles de laitue lorsque les têtes sont bien formées et que les feuilles sont tendres et croquantes."
+        },
+        "entretien": "Arroser régulièrement pour garder le sol humide. Il est recommandé de pailler autour des plants pour conserver l'humidité et limiter la pousse des mauvaises herbes.",
+        "rotationdescultures": "Éviter de planter des laitues au même endroit que des légumes de la même famille (chicorée, endive) pour prévenir les maladies du sol.",
+        "plantesamies": [
+            "Carotte", "Radis", "Tomate"
+        ],
+        "plantesenemies": [
+            "Chou", "Brocoli", "Chou-fleur"
+        ],
+        "conservation": "La laitue se conserve mieux au réfrigérateur, mais doit être consommée rapidement pour préserver sa fraîcheur. Elle peut également être blanchie et congelée.",
+        "benefices": "Riche en eau, en fibres et en vitamines A, C et K, la laitue est bénéfique pour l'hydratation, la digestion et la santé des os.",
+        "contreindication": "Aucune contre-indication majeure. Cependant, les personnes souffrant de troubles digestifs peuvent ressentir des inconforts en consommant de grandes quantités crues.",
+        "informationsnutritionnelles": "Environ 15 kcal pour 100g, la laitue est faible en calories mais riche en vitamines A, C et K, et une bonne source de minéraux comme le potassium et le calcium."
+    },
+    "13": {
+        "id": 13,
+        "nom": "Poireau",
+        "nomscientifique": "Allium ampeloprasum",
+        "famille": "Amaryllidacées",
+        "hauteur": "30 à 50 cm",
+        "sol": "Fertile, léger, bien drainé, légèrement alcalin",
+        "categorie": "legume",
+        "image": "poireau.jpg",
+        "resume": "Le poireau est un légume de la famille des alliacées, apprécié pour son goût doux et sa texture fondante. Il est souvent utilisé dans les soupes, les gratins, ou comme garniture.",
+        "semis": {
+            "mois": [
+                "février", "mars"
+            ],
+            "periode": "Hiver à printemps",
+            "instruction": "Semer en godets à 1 cm de profondeur. Lorsque les plants ont atteint 10 cm, les repiquer en pleine terre."
+        },
+        "plantation": {
+            "mois": [
+                "mars", "avril"
+            ],
+            "periode": "Printemps",
+            "instruction": "Planter les jeunes poireaux en pleine terre en espaçant chaque plant de 20 à 30 cm pour favoriser une bonne croissance des racines."
+        },
+        "recolte": {
+            "mois": [
+                "juillet", "août", "septembre", "octobre"
+            ],
+            "periode": "Été à automne",
+            "instruction": "Récolter les poireaux lorsqu'ils sont bien formés et que leur taille est suffisante. Ils peuvent être récoltés tout au long de l'automne."
+        },
+        "entretien": "Arroser régulièrement pendant la période de croissance. Paillez pour maintenir l'humidité et éviter les mauvaises herbes. Butter les poireaux pour obtenir des tiges plus blanches.",
+        "rotationdescultures": "Ne pas planter les poireaux au même endroit que des oignons ou de l'ail pour éviter les maladies du sol.",
+        "plantesamies": [
+            "Carotte", "Céleri", "Tomate"
+        ],
+        "plantesenemies": [
+            "Pois", "Haricot", "Betterave"
+        ],
+        "conservation": "Les poireaux se conservent bien dans un endroit frais ou au réfrigérateur pendant plusieurs semaines. Ils peuvent aussi être congelés après blanchiment.",
+        "benefices": "Riche en fibres, vitamines A, C et K, ainsi qu'en minéraux comme le calcium et le potassium, le poireau est bénéfique pour la digestion et la santé des os.",
+        "contreindication": "Aucune contre-indication majeure, mais les personnes souffrant de troubles digestifs ou de gaz peuvent avoir des difficultés avec les poireaux crus.",
+        "informationsnutritionnelles": "Environ 61 kcal pour 100g, avec des vitamines A, C et K, et une bonne source de minéraux comme le calcium, le fer et le potassium."
+    },
+    "14": {
+        "id": 14,
+        "nom": "Tomate",
+        "nomscientifique": "Solanum lycopersicum",
+        "famille": "Solanacées",
+        "hauteur": "60 à 150 cm",
+        "sol": "Fertile, léger, bien drainé, légèrement acide",
+        "categorie": "legume",
+        "image": "tomate.jpg",
+        "resume": "La tomate est un fruit de la famille des solanacées, cultivée principalement pour sa chair juteuse et son goût sucré-acidulé. Elle est utilisée dans de nombreuses recettes, des salades aux sauces.",
+        "semis": {
+            "mois": [
+                "février", "mars"
+            ],
+            "periode": "Hiver à printemps",
+            "instruction": "Semer en godets, à 1 cm de profondeur. Les semis doivent être maintenus au chaud jusqu'à ce qu'ils germent, puis repiqués en pleine terre après les dernières gelées."
+        },
+        "plantation": {
+            "mois": [
+                "mai", "juin"
+            ],
+            "periode": "Printemps",
+            "instruction": "Planter les jeunes tomates en pleine terre lorsque les températures nocturnes sont supérieures à 10°C. Espacer les plants de 50 à 60 cm pour leur permettre de bien se développer."
+        },
+        "recolte": {
+            "mois": [
+                "juillet", "août", "septembre"
+            ],
+            "periode": "Été à automne",
+            "instruction": "Récolter les tomates lorsqu'elles sont bien mûres, de couleur rouge, orange ou jaune, selon la variété."
+        },
+        "entretien": "Arroser régulièrement, de préférence au pied des plantes. Tuteuriser les pieds de tomate pour éviter que les fruits ne touchent le sol. Enlever les gourmands pour favoriser la production des fruits.",
+        "rotationdescultures": "Éviter de planter des tomates au même endroit que des aubergines, des poivrons ou des pommes de terre pour prévenir les maladies liées aux solanacées.",
+        "plantesamies": [
+            "Basilic", "Oignon", "Carotte"
+        ],
+        "plantesenemies": [
+            "Chou", "Pomme de terre", "Aneth"
+        ],
+        "conservation": "Les tomates se conservent mieux à température ambiante, mais peuvent aussi être réfrigérées si elles sont trop mûres. Elles peuvent être conservées en sauce, en purée ou congelées.",
+        "benefices": "Riche en antioxydants, en vitamines A et C, et en lycopène, la tomate est bénéfique pour la santé cardiovasculaire et aide à renforcer le système immunitaire.",
+        "contreindication": "Aucune contre-indication majeure, mais certaines personnes peuvent être sensibles aux tomates crues en raison de l'acidité.",
+        "informationsnutritionnelles": "Environ 18 kcal pour 100g, riche en eau, vitamines C et A, et en minéraux comme le potassium."
+    }
+}
