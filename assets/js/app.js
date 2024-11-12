@@ -147,6 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('add-ingredient').addEventListener('click', addIngredient);
     document.getElementById('add-etape').addEventListener('click', addEtape);
 
+    
     // Ajouter des écouteurs pour les boutons "Supprimer" existants
     document.querySelectorAll('.remove-ingredient').forEach(button => {
         button.addEventListener('click', function() {
