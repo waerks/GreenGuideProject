@@ -73,7 +73,7 @@
 
     #navBtn {
         display: inline-flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         width: 100px;
         height: 35px;   
@@ -306,6 +306,7 @@
     }
 
     h2 {
+        text-align: center;
         font-family: "Playfair Display", serif;
         font-size: 32px;
         
@@ -339,8 +340,8 @@
     
 
     #cardRepertoire {
-        width: 250px;
-        height: 300px;
+        width: 450px;
+        height: 500px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -400,8 +401,8 @@
     }
 
     #cardRecette {
-        width: 300px;
-        height: 400px;
+        width: 500px;
+        height: 600px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -572,26 +573,54 @@
     // MENU //
     nav {
         display: flex;
+        flex-direction: column;
         justify-content: space-between;
         align-items: center;
         padding: 20px 30px;
+        gap: 10px 0;
 
         ul {
             display: flex;
-            justify-content: space-around;
-            align-items: center;
+            justify-content: center;
+            align-items: flex-start;
             padding: 0;
+            margin: 0;
+            gap: 15px 0;
 
             &:nth-child(1) {
-                width: 20%;
+                width: 100%;
+                justify-content: space-between;
+                margin-bottom: 15px;
+
+                #cross {
+
+                    span {
+                        height: 25px;
+                        width: 25px;
+
+                        img {
+                            object-fit: contain;
+                            width: 100%;
+                            height: 100%;
+                            transform: rotate(45deg);
+                            transition: transform 0.2s ease-in-out;
+                        }
+                    }
+                }
             }
 
             &:nth-child(2) {
-                width: 40%;
+                width: 100%;
+                flex-direction: column;
             }
 
             &:nth-child(3) {
-                width: 40%;
+                width: 100%;
+                flex-direction: column;
+            }
+
+            li {
+                display: inline-flex;
             }
         }
     }
@@ -702,7 +731,7 @@
                 display: flex;
                 flex-direction: column;
                 border-radius: 50px;
-                padding: 50px 0;
+                padding: 50px 50px;
                 background-color: $accent;
 
                 h3 {
@@ -744,7 +773,7 @@
                     align-items: center;
 
                     form {
-                        width: 60%;
+                        width: 80%;
                         display: flex;
                         flex-direction: column;
 
@@ -784,7 +813,7 @@
                     }
                     
                     .divTwo {
-                        width: 80%;
+                        width: 100%;
                         height: 100px;
                         display: flex;
                         justify-content: center;
@@ -792,11 +821,11 @@
                         flex-direction: column;
 
                         .divCategorie {
-                            width: 80%;
+                            width: 100%;
                             display: flex;
                             justify-content: center;
                             align-items: center;
-                            gap: 0 50px;
+                            gap: 0 20px;
                         }
                     }
                 }
@@ -945,7 +974,7 @@
                     }
 
                     .divEntretien, .divRotation, .divAmie, .divEnnemie, .divBenefice, .divInfoNut {
-                        width: 45%;
+                        width: 100%;
                         display: flex;
                         flex-direction: column;
                         justify-content: space-between;
@@ -961,8 +990,8 @@
                 }
 
                 .divDuo {
-                    width: 100%;
-                    flex-direction: row;
+                    width: 90%;
+                    flex-direction: column;
                     align-items: flex-start;
 
                     .divTitreInfo, .divText {
@@ -1119,7 +1148,7 @@
                 .divInfos {
                     width: 100%;
                     height: 100px;
-                    padding: 0 15px;
+                    padding: 0 30px;
                     display: flex;
                     flex-wrap: wrap;
                     justify-content: space-between;
@@ -1188,7 +1217,7 @@
                 gap: 30px 0;
 
                 form {
-                    width: 60%;
+                    width: 80%;
                     display: flex;
                     flex-direction: column;
                     justify-content: center;

@@ -12,17 +12,78 @@
         <meta name="author" content="Anaïs Aerts">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {# *** TITLE *** #}
-        <title>{% block title %}GreenGuide{% endblock %}</title>
+        <title>
+            {% block title %}GreenGuide{% endblock %}
+        </title>
         {# *** ICONS *** #}
-        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('build/images/logos/180x180.png') }}">
-        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('build/images/logos/32x32.png') }}">
-        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('build/images/logos/16x16.png') }}">
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="{{ asset('build/images/logos/180x180.png') }}">
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="{{ asset('build/images/logos/32x32.png') }}">
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="{{ asset('build/images/logos/16x16.png') }}">
         {# *** CSS *** #}
         {% block stylesheets %}
             {{ encore_entry_link_tags('app_style') }}
             {# 'styles' fait référence à l'entrée CSS configurée dans webpack.config.js #}
         {% endblock %}
     </head>
+    <script>
+        function cross() {
+            const ulSecond = document.querySelector("ul:nth-child(2)");
+            const ulThird = document.querySelector("ul:nth-child(3)");
+            const minWidth = 768;
+
+            const crossImg = document.querySelector("#cross span img");
+
+            if (window.innerWidth <= minWidth) {
+                // Basculer l'affichage seulement pour les écrans de 768px ou moins
+                if (ulSecond.style.display === "none" && ulThird.style.display === "none") {
+                    ulSecond.style.display = "flex";
+                    ulThird.style.display = "flex";
+                    crossImg.style.transform = "rotate(0deg)";
+                } else {
+                    ulSecond.style.display = "none";
+                    ulThird.style.display = "none";
+                    crossImg.style.transform = "rotate(45deg)";
+                }
+            }
+        }
+
+        // Fonction pour définir l'affichage au chargement et au redimensionnement
+        function adjustMenuDisplay() {
+            const ulSecond = document.querySelector("ul:nth-child(2)");
+            const ulThird = document.querySelector("ul:nth-child(3)");
+            const cross = document.getElementById("cross");
+            const minWidth = 768;
+
+            if (window.innerWidth > minWidth) {
+                // Afficher les éléments en "flex" si la largeur de la fenêtre est au-delà de 768px
+                ulSecond.style.display = "flex";
+                ulThird.style.display = "flex";
+                cross.style.display = "none";
+            } else {
+                // Masquer les éléments en dessous de 768px, jusqu'à ce qu'ils soient affichés via toggleMenu
+                ulSecond.style.display = "none";
+                ulThird.style.display = "none";
+                cross.style.display = "flex";
+            }
+        }
+
+        // Appeler `adjustMenuDisplay` au chargement pour configurer l'affichage initial
+        document.addEventListener("DOMContentLoaded", adjustMenuDisplay);
+
+        // Écouter les changements de taille de la fenêtre pour adapter l'affichage en temps réel
+        window.addEventListener("resize", adjustMenuDisplay);
+    </script>
     <body>
         {# *** MENU *** #}
         <nav>
@@ -31,6 +92,7 @@
                     <a href="{{ path('accueil') }}">
                         <span><img src="{{ asset('build/images/logos/greenguide.png') }}" alt="Accueil"></span>GreenGuide</a>
                 </li>
+                <li id="cross" onclick="cross()"><span><img src="{{ asset('build/images/icons/cross.png') }}" alt="Fermer/Ouvrir"></span></li>
             </ul>
             <ul>
                 <li id="navBtn">
@@ -45,12 +107,13 @@
             </ul>
             <ul>
 
+                {% if is_granted("ROLE_USER")and app.user %}
 
-                {% if is_granted ("ROLE_USER") and app.user %}
-                
                     <li id="profilBtn">
                         <a href="{{ path('profil') }}">
-                            <span><img src="{{ asset('uploads/avatars/' ~ app.user.id ~ '/' ~ app.user.avatar) }}" alt="Profil"></span>{{app.user.pseudo}}</a>
+                            <span><img
+                                src="{{ asset('uploads/avatars/' ~ app.user.id ~ '/' ~ app.user.avatar) }}"
+                                alt="Profil"></span>{{app.user.pseudo}}</a>
                     </li>
 
                     <li id="navBorderBtn">

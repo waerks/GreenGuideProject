@@ -7,7 +7,7 @@
                 <h2>Souhaitez-vous modifier votre profil ?</h2>
             </div>
         </section>
-        <section id="aideAjout">
+        {# <section id="aideAjout">
             <form action="" method="post">
                 <h3>Ça se passse ici !</h3>
                 <hr>
@@ -23,7 +23,7 @@
                 
                 <button type="submit" id="mainBtn">Modifier</button>
             </form>
-        </section>
+        </section> #}
         <section id="divAllRecette">
             {% if recettes is empty %}
                 <h3>Vous n'avez encore posté</h3>
@@ -36,7 +36,7 @@
                 <div class="allPost">
                 {% for recette in recettes %}
                     <a id="cardRecette" href="{{ path('recette_detail', {'user_slug' : recette.user.slug, 'recette_slug' : recette.slug})}}">
-                        <span><img src="{{ asset('build/images/photosRecette/' ~ recette.image) }}" alt=""></span>
+                        <span><img src="{{ asset('/uploads/photosRecette/' ~ recette.image) }}" alt=""></span>
                         <div class="cardInfo">
                             <div class="divLeft">
                                 <h4>{{recette.nom}}</h4>
