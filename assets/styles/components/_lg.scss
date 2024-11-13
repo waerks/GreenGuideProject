@@ -1,3 +1,13 @@
 @media (min-width: 1024px) {
+    #contact {
+        width: 100%;
 
+        .formcontact {
+            width: 60%;
+
+            form {
+                width: 40%;
+            }
+        }
+    }
 }
